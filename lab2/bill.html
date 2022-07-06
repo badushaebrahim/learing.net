@@ -1,8 +1,11 @@
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./css/bill.css" >
+    </head>
 <body>
     <center>
-        <h1>Welcome User</h1>
-        <div style="background-color:floralwhite;padding-bottom:10px;padding-top:10px">
+        <h2></h2>
+        <div class="contain">
             <p>
 
                 <h4>
@@ -15,12 +18,44 @@
                 </h4>
 
             </p>
-    </center>
+    
     </div>
-    <center><h2>Bills here</h2></center>
-    <center><h2>Bills here</h2></center>
-    <center><h2>Bills here</h2></center>
-    <center><h2>Bills here</h2></center>
-    <center><h2>Bills here</h2></center>
+    <div>
+        <br>
+        <br>
+        <div class="card">
+            <br>
+            <h2>Bill Generator</h2>
+            <form action="dash.html" method="get">
+                <table>
+                    <tr>
+                        <td><label>Name</label></td>
+                        <td><input type="search" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Medicines</label></td>
+                        <td>
+                            <p>
+                                <textarea rows="5" cols="30"></textarea>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr><td>Price</td><td><input type="number" /></td></tr>
+
+
+                  
+
+
+
+                </table>
+                <br />
+                <input style="padding:10px;" type="submit" value="Add Medicines">
+                <input style="padding:10px;" type="reset">
+                <a href="dash.html"><input type="button" value="back" /></a>
+            </form>
+        </div>
+    </div>
+</center>
+    
 </body>
 </html>
