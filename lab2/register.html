@@ -2,29 +2,30 @@
 <html>
 <head>
     <title>pharmacist Details</title>
-	<link rel="stylesheet" type="text/css" href="./css/regcss.css" >
+    <link rel="stylesheet" type="text/css" href="./css/regcss.css" >
+
 
 </head>
-<body style="background-image: url('./assets/loko.svg'); background-repeat: none; background-size: cover; font-family: Arial">
+<body style="background-image: url('./assets/banner.jpg'); background-repeat: no-repeat; background-size: cover; font-family: Arial; color: black;height: 100%;">
     <center>
         <br />
         <br />
         <br />
-        <div style="-webkit-box-shadow: 0 0 10px rgb(0,0,0); -moz-box-shadow: 0 0 10px rgb(0,0,0); background-color: azure; width: 40%; border-radius:20px">
+        <div style="-webkit-box-shadow: 0 0 10px rgb(0,0,0); -moz-box-shadow: 0 0 10px rgb(0,0,0); background-color: rgba(239, 241, 241, 0.116); width: 40%; border-radius:20px;backdrop-filter: blur(10px);">
             <br>
             <h1>Register User </h1>
             <form action="Login.html" method="get">
                 <table>
                     <tr>
                         <td><label>Name</label></td>
-                        <td><input type="text" /></td>
+                        <td><input type="text" placeholder="Name" /></td>
                     </tr>
                     <tr>
-                        <td><label>Dob</label><br></td>
+                        <td><label>DoB</label><br></td>
                         <td><input type="date" /><br></td>
                     </tr>
                     <tr>
-                        <td>gender</td>
+                        <td>Gender</td>
                         <td>
                             <input type="radio" name="gen" />Male
                             <input name="gen" type="radio" />Female<input name="gen" type="radio" />Other
@@ -37,20 +38,19 @@
     <option>Accountant</option>
     <option>inspector</option>
     <option>admin</option>
-
 </select></td>
                     </tr>
                     <tr>
                         <td><label>Address</label></td>
                         <td>
                             <p>
-                                <textarea rows="5" cols="30"></textarea>
+                                <textarea rows="5" cols="30" placeholder="Address"></textarea>
                             </p>
                         </td>
                     </tr>
-                    <tr><td>Contact No</td><td><input type="tel" pattern="{0-9}10"></td></tr>
+                    <tr><td>Contact No</td><td><input type="tel" pattern="{0-9}10" placeholder="+91"></td></tr>
                     <tr>
-                        <td>Blood type </td>
+                        <td>Blood Group </td>
                         <td>
                             <select>
                                 <option>choose one</option>
@@ -62,10 +62,10 @@
                                 <option>AB-</option>
                             </select>
                         </td>
-                    <tr><td>Email</td><td><input type="email" ></td></tr>
-                    <tr><td>Password</td><td><input type="password" ></td></tr>
+                    <tr><td>Email</td><td><input type="email"  placeholder="Email"></td></tr>
+                    <tr><td>Password</td><td><input type="password" placeholder="Password"></td></tr>
                     <tr>
-                        <td>Select photo</td>
+                        <td> photo &nbsp;</td>
                         <td><input type="file"></td>
                     </tr>
                     
@@ -76,8 +76,8 @@
                     <tr><td></td><td>if you already  Registerd <a href="Login.html">click here</a></td></tr>
                 </table>
                 <br />
-                <input style="padding:10px;" type="submit" value="register">&nbsp;
-                <input style="padding:10px;" type="reset">
+                <input class="btn" style="padding:10px;" type="submit" value="Submit">&nbsp;
+                <input class="btn" style="padding:10px;" type="reset">
 
             </form>
             <br /><br />

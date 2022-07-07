@@ -13,9 +13,54 @@ body{
 }
 .hr{
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	font-size: 80px;
+	font-size: 2.5rem;
 	color: aliceblue;
 }
+
+@media only screen and (max-width: 768px) {
+	/* For mobile phones: */
+	 .contain{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.thr{
+		padding: 2px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		background-color: #00cf79;
+		color: aliceblue;
+		font-size: 0.41rem;
+	}
+	a{
+		color: aliceblue;
+		text-decoration: none;
+		padding: 10px;
+		margin: 2px;
+	}a:hover{
+		margin: 5px;
+		background-color: aliceblue;
+		color: black;
+	}
+	table{
+		border: solid;
+		width: 5vh;
+		
+	}
+	td{
+		font-size: 15px;
+	}
+	th{
+		font-size: 15px;
+	}
+	body{
+		font-size: 1.5vh;
+	}
+	.padded{
+		padding-left: 0px;
+	padding-right: 0px;
+	}
+      }
 a{
 	color: aliceblue;
 	text-decoration: none;
@@ -34,11 +79,10 @@ a:hover{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 }
 table{
 	border: solid;
-	width: 80vh;
+	width: 10vh;
 	
 }
 th{
@@ -51,18 +95,18 @@ th{
 }
 tr{
 	padding: 0px;
-	font-size: 15px;
+	font-size: 1rem;
 }
 .thr{
 	padding: 2px;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	background-color: #00cf79;
 	color: aliceblue;
-	font-size: 60px;
+	font-size: 3rem;
 }
 .padded{
-	padding-left: 80px;
-	padding-right: 80px;
+	padding-left: 2rem;
+	padding-right: 2rem;
 }
 td{
 	padding-left: 40px;
