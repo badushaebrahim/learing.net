@@ -1,0 +1,20 @@
+body{
+	background-image: url(../assets/banner.jpg);
+	background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:100vh;
+	font-family: 'Noto Sans', sans-serif;
+	display: flex;
+	align-items: center;
+justify-content: center;
+}
+
+.container{
+	background-color: cornsilk;
+}
+.input-labels{
+	font-size: 1rem;
+	
+}

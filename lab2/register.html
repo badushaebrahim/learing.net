@@ -1,90 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>pharmacist Details</title>
-    <link rel="stylesheet" type="text/css" href="./css/regcss.css" >
-
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/registerstyles.css">
+  
+ 
+ 
 </head>
-<body style="background-image: url('./assets/banner.jpg'); background-repeat: no-repeat; background-size: cover; font-family: Arial; color: black;height: 100%;">
-    <center>
-        <br />
-        <br />
-        <br />
-        <div style="-webkit-box-shadow: 0 0 10px rgb(0,0,0); -moz-box-shadow: 0 0 10px rgb(0,0,0); background-color: rgba(239, 241, 241, 0.116); width: 40%; border-radius:20px;backdrop-filter: blur(10px);">
-            <br>
-            <h1>Register User </h1>
-            <form action="Login.html" method="get">
-                <table>
-                    <tr>
-                        <td><label>Name</label></td>
-                        <td><input type="text" placeholder="Name" /></td>
-                    </tr>
-                    <tr>
-                        <td><label>DoB</label><br></td>
-                        <td><input type="date" /><br></td>
-                    </tr>
-                    <tr>
-                        <td>Gender</td>
-                        <td>
-                            <input type="radio" name="gen" />Male
-                            <input name="gen" type="radio" />Female<input name="gen" type="radio" />Other
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Select role:</td>
-                        <td><select>
-    <option>pharmacist</option>
-    <option>Accountant</option>
-    <option>inspector</option>
-    <option>admin</option>
-</select></td>
-                    </tr>
-                    <tr>
-                        <td><label>Address</label></td>
-                        <td>
-                            <p>
-                                <textarea rows="5" cols="30" placeholder="Address"></textarea>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr><td>Contact No</td><td><input type="tel" pattern="{0-9}10" placeholder="+91"></td></tr>
-                    <tr>
-                        <td>Blood Group </td>
-                        <td>
-                            <select>
-                                <option>choose one</option>
-                                <option>A+</option>
-                                <option>A-</option>
-                                <option>O+</option>
-                                <option>O-</option>
-                                <option>AB+</option>
-                                <option>AB-</option>
-                            </select>
-                        </td>
-                    <tr><td>Email</td><td><input type="email"  placeholder="Email"></td></tr>
-                    <tr><td>Password</td><td><input type="password" placeholder="Password"></td></tr>
-                    <tr>
-                        <td> photo &nbsp;</td>
-                        <td><input type="file"></td>
-                    </tr>
+<body>
+    <div class="container">
+        <form id="contact" action="" method="post">
+            <h1>Registration Form</h1>
+            <h3>Fill the form below and press the submit button!</h3>
+            <div class="row">
+                <!-- first column -->
+                <div class="column">    
+                    <div class="fieldspaceing">
+                        <label>Select Role</label>
+                        <select class="formstyles-for-option-select">
+                            <option class="formstyles-for-option-select">Roles</option>
+                            <option class="formstyles-for-option-select">Pharmacist</option>
+                            <option class="formstyles-for-option-select">Pharmacist</option>
+                        </select>
+                    </div>                    
+                    <div class="fieldspaceing">
+                        <label>Name</label>
+                        <input type="text" placeholder="Full Name " name="name"   autofocus>
+                    </div>
+                    <div class="fieldspaceing">
+                        <label>DoB</label>
+                        <input type="date">
+                    </div>
+                    <label>Email</label>
+                    <div class="fieldspaceing">
+                        <input type="email" placeholder="Your email " name="email"   autofocus>
+                    </div>
+                    <div class="fieldspaceing">
+                        <label>Password</label>
+                        <input type="password" placeholder="Password"    autofocus>
+                    </div>
+                    <div class="fieldspaceing">
+                        <label>Re-Enter</label>
+                        <input type="text" placeholder="Password"    autofocus>
+                    </div>
                     
+                    <!-- adding all country code list -->
+                    <div class="fieldspaceing">
+                        <label>Phone Number</label>
+                        <input type="text" placeholder="Phone number " name="phone" id="phone"   autofocus>
+                    </div>
+                </div>
+                <!-- second column -->
+                <div class="column">
+                    <div class="fieldspaceing">
+                        <p>Gender</p>
+                        <div class="radio">
+                            <input type="radio" id="male" name="gender"  >
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" id="female" name="gender"  >
+                            <label for="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="fieldspaceing">
+                        <label></label>
+                    </div>
+                    <div class="fieldspaceing">
+                        <p>Upload Photo</p>
+                        <input type="file" id="file"  >
+                    </div>
+                    <div class="fieldspaceing">
+                     <p>Already have an  account <a href="./Login.html">click here</a></p>
+                    </div>
+                </div><!--coloum end-->
+            </div>
+            <!-- submit button -->
+            <div class="fieldspaceing">
+                <button type="submit" id="button">Submit Now</button>
+            </div>
+        </form>
+    </div>
 
-
-
-                    <tr> <td></td><td><p><input type="checkbox">   <label>I agree to all terms </label></p></td></tr>
-                    <tr><td></td><td>if you already  Registerd <a href="Login.html">click here</a></td></tr>
-                </table>
-                <br />
-                <input class="btn" style="padding:10px;" type="submit" value="Submit">&nbsp;
-                <input class="btn" style="padding:10px;" type="reset">
-
-            </form>
-            <br /><br />
-        </div>
-    </center>
-
-
-</body> 
-
+</body>
 </html>
