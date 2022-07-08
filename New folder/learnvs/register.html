@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/newlogin.css">
+    <link rel="stylesheet" href="./css/registerstyles.css">
   
- 
+    <script src="login.js"></script>
  
 </head>
 <body>
@@ -28,7 +28,8 @@
                     </div>                    
                     <div class="fieldspaceing">
                         <label>Name</label>
-                        <input type="text" placeholder="Full Name " name="name"   autofocus>
+                        <input type="text" placeholder="Full Name " name="name" id="name"  onfocusout="checkname()" autofocus>
+                        <small></small>
                     </div>
                     <div class="fieldspaceing">
                         <label>DoB</label>
@@ -36,21 +37,25 @@
                     </div>
                     <label>Email</label>
                     <div class="fieldspaceing">
-                        <input type="email" placeholder="Your email " name="email"   autofocus>
+                        <input type="email" placeholder="Your email " id="email" name="email" onfocusout="checkemail()" autofocus>
+                        <small></small>
                     </div>
                     <div class="fieldspaceing">
                         <label>Password</label>
-                        <input type="password" placeholder="Password"    autofocus>
+                        <input type="password"  id="password" placeholder="Password" onfocusout="checkpwd()" autofocus>
+                        <small></small>
                     </div>
                     <div class="fieldspaceing">
                         <label>Re-Enter</label>
-                        <input type="text" placeholder="Password"    autofocus>
+                        <input type="password" placeholder="Password" id="repassword" onfocusout="checkrepwd()" autofocus>
+                        <small></small>
                     </div>
                     
-                    <!-- adding all country code list -->
+                    <!-- phone number div -->
                     <div class="fieldspaceing">
                         <label>Phone Number</label>
-                        <input type="text" placeholder="Phone number " name="phone" id="phone"   autofocus>
+                        <input type="text" placeholder="Phone number " name="phone" id="phone" onfocusout="checkphone()" autofocus>
+                        <small></small>
                     </div>
                 </div>
                 <!-- second column -->
@@ -58,20 +63,22 @@
                     <div class="fieldspaceing">
                         <p>Gender</p>
                         <div class="radio">
-                            <input type="radio" id="male" name="gender"  >
+                            <input type="radio" id="male" name="gender" required>
                             <label for="male">Male</label>
                         </div>
                         <div class="radio">
-                            <input type="radio" id="female" name="gender"  >
+                            <input type="radio" id="female" name="gender" required>
                             <label for="female">Female</label>
                         </div>
+                        <small></small>
                     </div>
                     <div class="fieldspaceing">
                         <label></label>
                     </div>
                     <div class="fieldspaceing">
                         <p>Upload Photo</p>
-                        <input type="file" id="file"  >
+                        <input type="file" id="file"  onchange="checkfile(this.value)" >
+                        <small></small>
                     </div>
                     <div class="fieldspaceing">
                      <p>Already have an  account <a href="./Login.html">click here</a></p>
