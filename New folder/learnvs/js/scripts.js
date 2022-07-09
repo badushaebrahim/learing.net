@@ -1,5 +1,4 @@
 // JavaScript source code of login.js
-
 function checkemail2() {
     let emailinput = document.getElementById("email");
     let email2value = emailinput.value.trim();
@@ -131,32 +130,49 @@ function checkrepwd() {
 }
 
 function checkphone() {
-    var nocheckregex = /^\d+$/;
+   // var nocheckregex = /^\d+$/;
     let phoneinput = document.getElementById("phone")
     if (phoneinput.value.trim() === "") {
         setError(phoneinput, "Empty phone number")
     } else {
-        if (phoneinput.value.trim().match(nocheckregex)) {
+       /* if (phoneinput.value.trim().match(nocheckregex)) {
             setSuccess(phoneinput)
         } else {
             setError(phoneinput,"invalid format")
+        }*/
+        if (isNaN(phoneinput.value.trim())) {
+            setSuccess(phoneinput)
+        } else {
+            setError(phoneinput,"Sent only Numbers")
         }
     }
 
 }
 //file upload check
-function checkfile(fileName) {
+function checkfile() {
     let fileinput = document.getElementById("file")
-    var allowed_extensions = new Array("jpg", "png", "gif");
-    var file_extension = fileName.split('.').pop().toLowerCase(); // split function will split the filename by dot(.), and pop function will pop the last element from the array which will give you the extension as well. If there will be no extension then it will return the filename.
-
-    for (var i = 0; i <= allowed_extensions.length; i++) {
-        if (allowed_extensions[i] == file_extension) {
-            return setError(fileinput, "File not allowed type"); // valid file extension
+    //let filename = fileinput.value.substr(fileinput.value.lastIndexOf('\\') + 1).split('.')[0];
+    if (fileinput.value.trim() === "") {
+        setError(fileinput,"No file Selected")
+    } else {
+        var allowed_extension = ["png", "jpg", "jpeg"]
+        var flag = 0;
+        let extension = fileinput.value.split('.')[1];
+        for (i = 0; i < allowed_extension.length; i++) {
+            if (extension == allowed_extension[i]) {
+                flag++;
+            }
+        }
+        if (flag == 0) {
+            setError(fileinput, "Not Allowed file type try: jpg,png,jpeg")
+        }
+        else {
+            setSuccess(fileinput)
         }
     }
+    
 
-    return setSuccess(fileinput);
+   
 }
 function datecheck() {
     let dateinput = document.getElementById('date');
@@ -179,4 +195,5 @@ function registerbuttoncheck() {
     checkphone();
     checkpwd();
     checkrepwd();
+    checkfile()
 }
