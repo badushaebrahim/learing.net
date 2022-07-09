@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="script.js"></script>
+	<style>
+		.container{
+			background-color: antiquewhite;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			
+		}
+		.wraper{
+			background-color: aliceblue;
+			height: 20rem;
+			padding: 10rem;
+		}
+		.smallhidden{
+			visibility: hidden;
+		}
+		.smallshown{
+			visibility: visible;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form>
+		<div class="wraper">
+			<label>Name</label><br>
+			<input type="text" id="name" placeholder="Name" onfocusout="checkname()"><br>
+			<small></small><br>
+			<input type="submit" onclick="checkvalidation()" id="button">
+		</div>
+
+	</form>
+	</div>
+</body>
+</html>

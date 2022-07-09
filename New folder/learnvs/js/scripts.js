@@ -80,10 +80,8 @@ function checkemail() {
         }
     }
 }
-//login password check with regex enforcement
 
-
-
+//funcrtion are used ever where to sho error msg in <small> tag
 function setError(input, message) {
     let submitbutton = document.getElementById("button")
     const formControl = input.parentElement;
@@ -101,7 +99,7 @@ function setSuccess(input) {
     small.innerHTML = ""
     submitbutton.disabled = false
 }
-
+//till here
 
 //checking password from register
 function checkpwd() {
@@ -126,7 +124,7 @@ function checkrepwd() {
             
         }
         else {
-            setError(repassword, "Pass word not Matching")
+            setError(repassword, "Password not Matching")
         }
     }
 
@@ -159,4 +157,26 @@ function checkfile(fileName) {
     }
 
     return setSuccess(fileinput);
+}
+function datecheck() {
+    let dateinput = document.getElementById('date');
+    if (dateinput.value === "") {
+        setError(dateinput, "Date of Birth is Empty")
+    }
+    else {
+        setSuccess(dateinput)
+    }
+}
+
+function loginbuttoncheck() {
+    checkemail2();
+    checkpassword2();
+}
+function registerbuttoncheck() {
+    checkname();
+    datecheck();
+    checkemail();
+    checkphone();
+    checkpwd();
+    checkrepwd();
 }

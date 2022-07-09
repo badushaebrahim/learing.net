@@ -1,8 +1,7 @@
 
 
 .text-center{
-	color:black;	
-	text-transform:uppercase;
+	color:black;
     font-size: 4vh;
     margin: -50px 0 80px 0;
     display: block;
@@ -13,7 +12,7 @@
 	position:absolute;
 	left:50%;
 	top:50%;
-	width: 20vh;
+	width: 25vh;
 	height: 25vh;
 	transform: translate(-50%,-50%);
 	background-color: white;
