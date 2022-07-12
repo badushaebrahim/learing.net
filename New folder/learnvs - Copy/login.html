@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Login Page</title>
+	<link rel="stylesheet" type="text/css" href="login.css" >
+    <script src="./js/scripts.js"></script>
+</head>
+
+<body>
+    <div class="testdiv">
+    <div class="box">
+        <form name="form" id="form" action="./dash.html" method="get">
+            <span class="text-center">Login</span>
+        <div class="input-container">		
+            <input type="mail" id="email" name="email" onchange="checkemail2()"/>
+            <label>Email</label>
+            <small id="emailerror"></small>
+        </div>
+        <div class="input-container">
+            <input name="password"  id="pwd" type="password"  onchange="checkpassword2()"/>
+            <label>Password</label>
+            <small id="pwdderror"></small>
+
+        </div>
+        <p>Create An Account <a href='./register.html'> click here</a></p>
+            <div class="centerdiv"><button type="submit" onclick="loginbuttoncheck()" id="submit" class="submit-button">submit</button> </div>
+    </form>	
+    </div>
+</div>
+    </body>
+
+
+</html>

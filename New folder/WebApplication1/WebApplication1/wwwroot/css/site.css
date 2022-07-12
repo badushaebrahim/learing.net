@@ -69,3 +69,395 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+/*this here from login*/
+
+
+.text-center {
+    color: black;
+    font-size: 4vh;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+}
+
+.box {
+    border: 10px rgb(17, 16, 16);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 45vh;
+    height: 55vh;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    border-radius: 3px;
+    border:solid;
+    padding: 90px 140px;
+    -webkit-box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.432);
+    -moz-box-shadow: 10px 10px 0 rgb(100, 98, 98);
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+    .input-container label {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 16px;
+        color: black;
+        pointer-event: none;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .input-container input {
+        border: 0;
+        border-bottom: 1px solid #555;
+        background: transparent;
+        width: 100%;
+        padding: 8px 0 5px 0;
+        font-size: 16px;
+        color: black;
+    }
+
+        .input-container input:focus {
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #e74c3c;
+        }
+
+.submit-button {
+    color: #fff;
+    background-color: #e74c3c;
+    outline: none;
+    border: 0;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-top: 50px;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.testdivlogin {
+    background-image: url('assets/banner.jpg');
+    background-color: antiquewhite;
+    background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    font-family: 'Noto Sans', sans-serif;
+}
+/*.submit-button:after{
+	content:"";
+	position:absolute;
+	background:rgba(0,0,0,0.50);
+	top:0;
+	right:0;
+	width:100%;
+	height:100%;
+}*/
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+    top: -12px;
+    font-size: 12px;
+}
+
+.centerdiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.smallhidden {
+    visibility: hidden;
+}
+
+.smallshown {
+    visibility: visible;
+    color: red;
+}
+
+/*end of login css*/
+/*start of register css*/
+/* #contact is form id name */
+/* selecting everything */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.testdiv {
+    font-family: 'Open Sans', sans-serif, helvetica, Arial;
+    font-weight: 400;
+    font-size: 14px;
+    color: black;
+    /* body background image */
+    background-image: url(../assets/banner.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+#contact {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px 0;
+    border: solid;
+    -webkit-box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.432);
+    -moz-box-shadow: 10px 10px 0 rgb(100, 98, 98);
+}
+
+    #contact input, button {
+        font: 400 15px 'Open Sans', sans-serif, helvetica, Arial;
+    }
+
+    #contact h1 {
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+        color: black;
+    }
+
+    #contact h3 {
+        margin: 5px 0px 15px;
+        text-align: center;
+    }
+
+.row {
+    display: flex;
+    width: 100% !important;
+    padding: 20px 0px;
+}
+
+    .row .column {
+        margin: 0px 20px;
+        width: 50%;
+
+    }
+
+.fieldspaceing {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    width: 100%;
+}
+
+#contact input {
+    width: 100%;
+    border: 1px solid rgb(150, 150, 150);
+    background-color: white;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+input[type = "radio"] {
+    width: 10% !important;
+}
+
+#contact .row .radio {
+    border: 1px solid rgb(150, 150, 150);
+    background-color: white;
+    margin: 7px 0 10px;
+    padding: 5px;
+}
+
+#contact .row .idCard {
+    display: flex;
+    height: 45px !important;
+    margin: 5px 0;
+}
+
+    #contact .row .idCard :first-child {
+        width: 80px;
+    }
+
+    #contact .row .idCard :last-child {
+        width: 40px;
+    }
+
+#contact .row #phone {
+    max-width: 100% !important;
+    padding-right: 80px;
+}
+/* in contact button hover  */
+#contact input:hover {
+    transition: border-color 0.3s ease-in-out;
+    border: 1px solid rgb(68, 68, 68);
+}
+/* in contact from button */
+#contact button {
+    outline: none;
+    border: none;
+    background-color: blue;
+    color: white;
+    margin: 0 0 5px 40%;
+    padding: 10px;
+    font-size: 17px;
+    width: 150px;
+}
+    /* button in contact div :hover */
+    #contact button:hover {
+        background-color: rgba(0, 0, 255, 0.8);
+    }
+/* give in focus effect */
+#contact input:focus {
+    outline: 0;
+    border: 1px solid red;
+}
+
+/* mobile responsive mode */
+@media screen and (max-width: 580px) {
+    .row {
+        flex-direction: column;
+    }
+
+        .row .column {
+            width: 90% !important;
+        }
+
+    #contact .row #phone {
+        padding-right: 180px;
+    }
+}
+
+.formstyles-for-option-select {
+    width: 100%;
+    border: 1px solid rgb(150, 150, 150);
+    background-color: white;
+    padding: 10px;
+    margin: 5px 0;
+}
+/*for from validation*/
+.smallhidden {
+    visibility: hidden;
+}
+
+.smallshown {
+    visibility: visible;
+    color: red;
+}
+/*end of register css*/
+
+/*home start*/
+.navbar-div {
+    background-color: rgb(0, 207, 121);
+    /* background-color: #1f08f7; */
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.nav-heading {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.5rem;
+    color: aliceblue;
+}
+
+.table-items {
+    padding: 0.8rem;
+}
+
+.tableborder {
+    border: solid;
+}
+
+.table-header {
+    font-size: 1rem;
+    background-color: #00cf79;
+    color: aliceblue;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .navbar-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
+    * {
+        font-size: 1.5vh;
+    }
+
+    .main-div-padding {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.navbar-links {
+    color: aliceblue;
+    text-decoration: none;
+    padding: 10px;
+    padding: 10px;
+    margin-top: 10px
+}
+
+a:hover {
+    background-color: aliceblue;
+    color: black;
+}
+
+.image-holder-div {
+    background-image: url(../assets/banner.jpg);
+    background-size: cover;
+    background-repeat: none;
+    width: 60%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+tr {
+    padding: 0px;
+    font-size: 1rem;
+}
+
+.in-imageheading {
+    padding: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #00cf79;
+    color: aliceblue;
+    font-size: 3rem;
+}
+
+.main-div-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.centerdiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.indexwrap{
+    min-width:100%;
+    man-height:100%;
+}
+/*home end*/

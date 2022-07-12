@@ -1,0 +1,88 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="testdiv">
+    <div class="container">
+        <form id="contact" action="" method="post">
+            <h1>Registration Form</h1>
+            <h3>Fill the form below and press the submit button!</h3>
+            <div class="row">
+                <!-- first column -->
+                <div class="column">
+                    <div class="fieldspaceing">
+                        <label>Select Role</label>
+                        <select class="formstyles-for-option-select">
+                            <option class="formstyles-for-option-select">Roles</option>
+                            <option class="formstyles-for-option-select">Pharmacist</option>
+                            <option class="formstyles-for-option-select">Pharmacist</option>
+                        </select>
+                    </div>
+                    <div class="fieldspaceing">
+                        <label>Name</label>
+                        <input type="text" placeholder="Full Name " name="name" id="name" onchange="checkname()" autofocus>
+                        <small></small>
+                    </div>
+                    <div class="fieldspaceing">
+                        <label>DoB</label>
+                        <input type="date" id="date" onchange="datecheck()">
+                        <small></small>
+                    </div>
+                    <label>Email</label>
+                    <div class="fieldspaceing">
+                        <input type="email" placeholder="Your email " id="email" name="email" onchange="checkemail()" autofocus>
+                        <small></small>
+                    </div>
+                    <div class="fieldspaceing">
+                        <label>Password</label>
+                        <input type="password" id="password" placeholder="Password" onchange="checkpwd()" autofocus>
+                        <small></small>
+                    </div>
+                    <div class="fieldspaceing">
+                        <label>Confirm password</label>
+                        <input type="password" placeholder="Password" id="repassword" onchange="checkrepwd()" autofocus>
+                        <small></small>
+                    </div>
+
+                    <!-- phone number div -->
+                    <div class="fieldspaceing">
+                        <label>Phone Number</label>
+                        <input type="text" placeholder="Phone number " name="phone" id="phone" onchange="checkphone()" autofocus>
+                        <small></small>
+                    </div>
+                </div>
+                <!-- second column -->
+                <div class="column">
+                    <div class="fieldspaceing">
+                        <p>Gender</p>
+                        <div class="radio">
+                            <input type="radio" id="male" name="gender" required>
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" id="female" name="gender" required>
+                            <label for="female">Female</label>
+                        </div>
+
+                    </div>
+                    <div class="fieldspaceing">
+                        <label></label>
+                    </div>
+                    <div class="fieldspaceing">
+                        <p>Upload Photo</p>
+                        <input type="file" id="file" onchange="checkfile()">
+                        <small></small>
+                    </div>
+                    <div class="fieldspaceing">
+                        <p>Already have an  account <a class="nav-link text-dark" sp-area="Login">click here</a></p>
+                    </div>
+                </div><!--coloum end-->
+            </div><!--row end-->
+            <!-- submit button -->
+            <div class="fieldspaceing">
+                <button type="submit" id="button" onclick="registerbuttoncheck()">Submit Now</button>
+            </div>
+        </form>
+    </div>
+</div>

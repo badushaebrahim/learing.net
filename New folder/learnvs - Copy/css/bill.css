@@ -1,0 +1,31 @@
+.contain{
+	background-color:rgb(73, 20, 20);
+	padding-bottom:10px;
+	padding-top:10px;
+}
+
+a{
+	color: aliceblue;
+	text-underline-offset: none;
+}
+a:hover{
+	background-color: aliceblue;
+	color: black;
+}
+
+.card{
+width: 40%;
+height: 40%;
+-webkit-box-shadow: 0 0 10px rgb(0,0,0); -moz-box-shadow: 0 0 10px rgb(0,0,0); background-color: rgb(242, 248, 248); width: 40%; border-radius:20px
+}
+body{
+	background-color: rgb(187, 238, 255);
+}
+.heads{
+	display: flex;
+	direction: row;
+	justify-items: center;
+}
+.tab{
+	border: solid;
+}

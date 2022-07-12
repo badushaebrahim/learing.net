@@ -21,14 +21,14 @@
                     <div class="fieldspaceing">
                         <label>Select Role</label>
                         <select class="formstyles-for-option-select">
-                            <option class="formstyles-for-option-select">Roles</option>
+                            <option class="formstyles-for-option-select">Select One</option>
                             <option class="formstyles-for-option-select">Pharmacist</option>
-                            <option class="formstyles-for-option-select">Pharmacist</option>
+                            <option class="formstyles-for-option-select">Manager</option>
                         </select>
                     </div>                    
                     <div class="fieldspaceing">
                         <label>Name</label>
-                        <input type="text" placeholder="Full Name " name="name" id="name"  onchange="checkname()" autofocus>
+                        <input type="text" placeholder="Full Name " name="name" id="name"  oninput="checkname()" autofocus>
                         <small></small>
                     </div>
                     <div class="fieldspaceing">
@@ -38,24 +38,24 @@
                     </div>
                     <label>Email</label>
                     <div class="fieldspaceing">
-                        <input type="email" placeholder="Your email " id="email" name="email" onchange="checkemail()" autofocus>
+                        <input type="email" placeholder="Your email " id="email" name="email" oninput="checkemail()" autofocus>
                         <small></small>
                     </div>
                     <div class="fieldspaceing">
                         <label>Password</label>
-                        <input type="password"  id="password" placeholder="Password" onchange="checkpwd()" autofocus>
+                        <input type="password"  id="password" placeholder="Password" oninput="checkpwd()" autofocus>
                         <small></small>
                     </div>
                     <div class="fieldspaceing">
                         <label>Confirm password</label>
-                        <input type="password" placeholder="Password" id="repassword" onchange="checkrepwd()" autofocus>
+                        <input type="password" placeholder="Password" id="repassword" oninput="checkrepwd()" autofocus>
                         <small></small>
                     </div>
                     
                     <!-- phone number div -->
                     <div class="fieldspaceing">
                         <label>Phone Number</label>
-                        <input type="text" placeholder="Phone number " name="phone" id="phone" onchange="checkphone()" autofocus>
+                        <input type="number" placeholder="Phone number " name="phone" id="phone" oninput="checkphone()" autofocus>
                         <small></small>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="fieldspaceing">
                         <p>Upload Photo</p>
-                        <input type="file" id="file"  onchange="checkfile()" >
+                        <input type="file" id="file"  oninput="checkfile()" >
                         <small></small>
                     </div>
                     <div class="fieldspaceing">

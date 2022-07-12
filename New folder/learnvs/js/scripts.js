@@ -130,21 +130,22 @@ function checkrepwd() {
 }
 
 function checkphone() {
-   // var nocheckregex = /^\d+$/;
+    //var nocheckregex = /^\d+$/;
+    var nocheckregex = /^[0-9]{10}$/;
     let phoneinput = document.getElementById("phone")
     if (phoneinput.value.trim() === "") {
         setError(phoneinput, "Empty phone number")
     } else {
-       /* if (phoneinput.value.trim().match(nocheckregex)) {
+         if (phoneinput.value.trim().match(nocheckregex)) {
             setSuccess(phoneinput)
         } else {
-            setError(phoneinput,"invalid format")
-        }*/
-        if (isNaN(phoneinput.value.trim())) {
-            setSuccess(phoneinput)
-        } else {
-            setError(phoneinput,"Sent only Numbers")
+            setError(phoneinput,"Enter Valid Mobile Number ")
         }
+       /* if (isNaN(phoneinput.value.trim())) {
+            setSuccess(phoneinput)
+        } else {
+            setError(phoneinput,"Enter only Numbers")
+        }*/
     }
 
 }
@@ -195,5 +196,5 @@ function registerbuttoncheck() {
     checkphone();
     checkpwd();
     checkrepwd();
-    checkfile()
+    //checkfile()
 }

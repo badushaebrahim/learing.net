@@ -37,3 +37,6 @@ C:\Users\badus\Desktop\claysis learn\New folder\WebApplication1\WebApplication1\
 C:\Users\badus\Desktop\claysis learn\New folder\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.genruntimeconfig.cache
 C:\Users\badus\Desktop\claysis learn\New folder\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.csproj.CopyComplete
 C:\Users\badus\Desktop\claysis learn\New folder\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Blank.cshtml.g.cs
+C:\Users\badus\Desktop\claysis learn\New folder\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
+C:\Users\badus\Desktop\claysis learn\New folder\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Register.cshtml.g.cs
+C:\Users\badus\Desktop\claysis learn\New folder\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Homes.cshtml.g.cs
