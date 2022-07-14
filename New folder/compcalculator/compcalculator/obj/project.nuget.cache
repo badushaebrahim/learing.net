@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "N9vBDUzXBsGc3VnCeKHrshqbYvF8mV/wrx8QGfQuoSHTLnWCmUE5ZpPC5eaoxg2HusyNJKphJrwlSoLBhT+cig==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\badus\\Desktop\\claysis learn\\New folder\\compcalculator\\compcalculator\\compcalculator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\badus\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
+  ],
+  "logs": []
+}

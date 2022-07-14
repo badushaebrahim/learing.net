@@ -55,12 +55,10 @@ function checkname() {
     let name2value = nameinput.value.trim();
     if (name2value === "") {
         setError(nameinput, "Empty name");
-        console.log("hit")
+       
     }
     else {
         setSuccess(nameinput)
-        console.log("not")
-
     }
 }
 function checkemail() {

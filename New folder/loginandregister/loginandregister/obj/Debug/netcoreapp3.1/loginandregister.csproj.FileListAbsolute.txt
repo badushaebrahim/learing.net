@@ -1,0 +1,17 @@
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\bin\Debug\netcoreapp3.1\loginandregister.exe
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\bin\Debug\netcoreapp3.1\loginandregister.deps.json
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\bin\Debug\netcoreapp3.1\loginandregister.runtimeconfig.json
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\bin\Debug\netcoreapp3.1\loginandregister.runtimeconfig.dev.json
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\bin\Debug\netcoreapp3.1\loginandregister.dll
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\bin\Debug\netcoreapp3.1\loginandregister.pdb
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.csproj.AssemblyReference.cache
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.Form1.resources
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.csproj.GenerateResource.cache
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.AssemblyInfoInputs.cache
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.AssemblyInfo.cs
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.csproj.CoreCompileInputs.cache
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.dll
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.pdb
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.genruntimeconfig.cache
+C:\Users\badus\Desktop\claysis learn\New folder\loginandregister\loginandregister\obj\Debug\netcoreapp3.1\loginandregister.Register.resources

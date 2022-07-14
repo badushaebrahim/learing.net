@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "OIIYfxmK6xEvRf68Xot7pARtpIVzNxKfwDrUCjHkTtrzlkrMnQu6Hbmz/A3acDeIEVY1O/5iYZRH7mP6ZQAS+A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\badus\\Desktop\\claysis learn\\New folder\\loginandregister\\loginandregister\\loginandregister.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\badus\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
+  ],
+  "logs": []
+}

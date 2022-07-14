@@ -6,14 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/registerstyles.css">
-  
+    <script>
+        var date =document.getElementById("date");
+    
+    var d = new Date().toISOString().split('T')[0]
+    console.log(new Date().toISOString().split('T')[0])
+    //date.setAttribute("max", d);
+    </script>
     <script src="./js/scripts.js"></script>
- 
+   
 </head>
-<body>
+<body >
     <div class="testdiv">
     <div class="container">
-        <form id="contact" action="" method="post">
+        <form id="contact" action="" method="post" >
             <h1>Registration Form</h1>
             <h3>Fill the form below and press the submit button!</h3>
             <div class="row">
@@ -34,7 +40,7 @@
                     </div>
                     <div class="fieldspaceing">
                         <label>DoB</label>
-                        <input type="date" id="date" onchange="datecheck()">
+                        <input type="date" id="date" onchange="datecheck()" >
                         <small></small>
                     </div>
                     <label>Email</label>

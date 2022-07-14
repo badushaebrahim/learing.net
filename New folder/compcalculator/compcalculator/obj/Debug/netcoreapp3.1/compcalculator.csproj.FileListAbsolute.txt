@@ -1,0 +1,16 @@
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\bin\Debug\netcoreapp3.1\compcalculator.exe
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\bin\Debug\netcoreapp3.1\compcalculator.deps.json
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\bin\Debug\netcoreapp3.1\compcalculator.runtimeconfig.json
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\bin\Debug\netcoreapp3.1\compcalculator.runtimeconfig.dev.json
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\bin\Debug\netcoreapp3.1\compcalculator.dll
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\bin\Debug\netcoreapp3.1\compcalculator.pdb
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\obj\Debug\netcoreapp3.1\compcalculator.csproj.AssemblyReference.cache
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\obj\Debug\netcoreapp3.1\compcalculator.Form1.resources
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\obj\Debug\netcoreapp3.1\compcalculator.csproj.GenerateResource.cache
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\obj\Debug\netcoreapp3.1\compcalculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\obj\Debug\netcoreapp3.1\compcalculator.AssemblyInfoInputs.cache
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\obj\Debug\netcoreapp3.1\compcalculator.AssemblyInfo.cs
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\obj\Debug\netcoreapp3.1\compcalculator.csproj.CoreCompileInputs.cache
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\obj\Debug\netcoreapp3.1\compcalculator.dll
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\obj\Debug\netcoreapp3.1\compcalculator.pdb
+C:\Users\badus\Desktop\claysis learn\New folder\compcalculator\compcalculator\obj\Debug\netcoreapp3.1\compcalculator.genruntimeconfig.cache

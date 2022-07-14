@@ -174,7 +174,22 @@ function checkfile() {
 
    
 }
+function dat(){
+   // alert("a")
+    let dateinput = document.getElementById('date');
+    var d = new Date().toISOString().split('T')[0]
+    console.log(new Date().toISOString().split('T')[0])
+    dateinput.setAttribute("max", d);
+}
+
+//added event listner at form to exicute function after code is lodaed
+document.addEventListener('readystatechange',event =>{
+    if (event.target.readyState === "interactive") {   //does same as:  ..addEventListener("DOMContentLoaded"..
+        dat()
+    }
+})
 function datecheck() {
+  
     let dateinput = document.getElementById('date');
     if (dateinput.value === "") {
         setError(dateinput, "Date of Birth is Empty")

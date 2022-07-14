@@ -1,0 +1,7 @@
+C:\Users\badus\Desktop\claysis learn\New folder\Calculator\Calculator\obj\Release\netcoreapp3.1\Calculator.csproj.AssemblyReference.cache
+C:\Users\badus\Desktop\claysis learn\New folder\Calculator\Calculator\obj\Release\netcoreapp3.1\Calculator.Form1.resources
+C:\Users\badus\Desktop\claysis learn\New folder\Calculator\Calculator\obj\Release\netcoreapp3.1\Calculator.csproj.GenerateResource.cache
+C:\Users\badus\Desktop\claysis learn\New folder\Calculator\Calculator\obj\Release\netcoreapp3.1\Calculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\badus\Desktop\claysis learn\New folder\Calculator\Calculator\obj\Release\netcoreapp3.1\Calculator.AssemblyInfoInputs.cache
+C:\Users\badus\Desktop\claysis learn\New folder\Calculator\Calculator\obj\Release\netcoreapp3.1\Calculator.AssemblyInfo.cs
+C:\Users\badus\Desktop\claysis learn\New folder\Calculator\Calculator\obj\Release\netcoreapp3.1\Calculator.csproj.CoreCompileInputs.cache
