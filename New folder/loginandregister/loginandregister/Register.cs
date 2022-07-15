@@ -13,8 +13,13 @@ namespace loginandregister
         public Register()
         {
             InitializeComponent();
-        }
+            setMaxdate();
 
+        }
+        private void setMaxdate()
+        {
+            dateTimePicker1.MaxDate = DateTime.Today;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 

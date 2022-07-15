@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -22,33 +22,49 @@ namespace Login
         {
 
         }
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            String constring = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=badusha;Integrated Security=True";
-
-         SqlConnection con = new SqlConnection(constring);
-
-          con.Open();
-
-            String Email = textBox1.Text;
-            String Password = textBox2.Text;
-
-            String qr = "use badusha ;EXEC dbo.USER_TABLE_CRUD @Type='userLogin', @Email='" + Email + "',@Password='" + Password + "';";
-     MessageBox.Show(qr);
-            SqlDataAdapter sda = new SqlDataAdapter(qr, con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            if (dt.Rows.Count == 1)
+            if(textBox1.Text == "")
             {
-                MessageBox.Show("success");
+                MessageBox.Show("Email empty");
+            }else if(textBox2.Text == "")
+            {
+                MessageBox.Show("Passowrd empty");
 
             }
             else
             {
-                MessageBox.Show("Please check your username and password");
-            }
+                String constring = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=badusha;Integrated Security=True";
 
+                SqlConnection con = new SqlConnection(constring);
+
+                con.Open();
+
+                String Email = textBox1.Text;
+                String Password = textBox2.Text;
+
+                String qr = "EXEC dbo.USER_TABLE_CRUD @Type='userLogin', @Email='" + Email + "',@Password='" + Password + "';";
+                //MessageBox.Show(qr);
+                SqlDataAdapter sda = new SqlDataAdapter(qr, con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                if (dt.Rows.Count == 1)
+                {
+                    this.Hide();
+                    //simple_dash ds = new simple_dash();
+                    dash ds = new dash();
+                    ds.Show();
+                   // MessageBox.Show("oks");
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Please check your Email & password");
+                }
+
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -56,6 +72,16 @@ namespace Login
             this.Hide();
             Register rm = new Register();
             rm.Show();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.PasswordChar = '*';
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

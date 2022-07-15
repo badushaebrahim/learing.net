@@ -67,10 +67,14 @@ namespace loginandregister
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(74, 147);
+            this.dateTimePicker1.MaxDate = new System.DateTime(2022, 7, 14, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 7, 14, 0, 0, 0, 0);
             // 
             // label1
             // 
