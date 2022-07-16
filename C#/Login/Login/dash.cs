@@ -28,12 +28,22 @@ namespace Login
             g.sda.Fill(dt);
             dataGridView1.DataSource = dt;
             //Global.useri
-            MessageBox.Show(Global.userid);
+            //MessageBox.Show(Global.userid);
 
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(dataGridView1.Columns[e.ColumnIndex].HeaderText == "Update")
+            {
 
+            }
+            if (dataGridView1.Columns[e.ColumnIndex].HeaderText == "Delete")
+            {
+                int gridcontentid;
+                gridcontentid = (int)dataGridView1.Rows[e.RowIndex].Cells["UID"].Value;
+                MessageBox.Show("id" + gridcontentid);
+
+            }
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
