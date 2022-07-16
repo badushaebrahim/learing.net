@@ -35,7 +35,7 @@ namespace Login
         private void Updatebtn_Click(object sender, EventArgs e)
         {
             String nameofmeds = textBox2.Text;
-            Regex regex = new Regex(@"^-?[0-9][0-9,\.]+$");
+            Regex regex = new Regex(@"^-?[0-9,\.]+$");
 
             if (regex.IsMatch(textBox4.Text) && textBox2.Text != "")
             {

@@ -23,8 +23,13 @@ use badusha
 --SQL QUERY TO JION USERS AND MEDDETAILS TABLES
 select dbo.USERS.Name AS Name_of_pharamasist, dbo.medsdetails.* from dbo.medsdetails INNER JOIN dbo.USERS ON dbo.medsdetails.Parmasisid  =  dbo.USERS.ID
 GO
+
+EXEC SP_HELP medsdetails;
+
 --STORED PROCEDURE TO GET ALL DETAILS IN USERS TABLE
 EXEC dbo.getUserdetails
+
+SELECT * FROM medsdetails;
 
 --stored procedure to insert data into users table
 EXEC dbo.inserttoUsers @Name='arun',@DOB='06-08-2001',@Email='b@q.co',@Password ='1452',@PhoneNumber='9544655941',
