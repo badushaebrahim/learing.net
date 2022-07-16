@@ -24,3 +24,4 @@ C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Debug\Login.pdb
 C:\Users\badus\Desktop\claysis learn\C#\Login\Login\bin\Debug\Login.exe.config
 C:\Users\badus\Desktop\claysis learn\C#\Login\Login\bin\Debug\Login.exe
 C:\Users\badus\Desktop\claysis learn\C#\Login\Login\bin\Debug\Login.pdb
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Debug\Login.editmeds.resources

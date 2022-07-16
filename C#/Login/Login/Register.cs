@@ -127,7 +127,7 @@ namespace Login
                 String qr = "EXEC dbo.USER_TABLE_CRUD @Type='addNewsuser',"+ "@Name ='"+ Name+"',@DOB ='"+DOB+"',@Email='" + Email + "',@Password='" + Password + "',"+ "@PhoneNumber='" +phonenumber+"',"+"@Gender='"+gender+"',"+ "@PhotoURL='nourl',"+ "@Role='"+Role + "';";
 
 
-                MessageBox.Show(qr);
+               // MessageBox.Show(qr);
                 String constring = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=badusha;Integrated Security=True";
 
                 SqlConnection con = new SqlConnection(constring);

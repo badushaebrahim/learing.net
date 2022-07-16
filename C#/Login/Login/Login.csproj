@@ -64,6 +64,12 @@
       <DependentUpon>dash.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseAcces.cs" />
+    <Compile Include="editmeds.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editmeds.Designer.cs">
+      <DependentUpon>editmeds.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dash.resx">
       <DependentUpon>dash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editmeds.resx">
+      <DependentUpon>editmeds.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

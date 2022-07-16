@@ -157,14 +157,14 @@ namespace Login
             // Parmasisid
             // 
             this.Parmasisid.DataPropertyName = "Parmasisid";
-            this.Parmasisid.HeaderText = "Parmasisid";
+            this.Parmasisid.HeaderText = "pharamasist id";
             this.Parmasisid.Name = "Parmasisid";
             this.Parmasisid.ReadOnly = true;
             // 
             // dateandtime
             // 
             this.dateandtime.DataPropertyName = "dateandtime";
-            this.dateandtime.HeaderText = "dateandtime";
+            this.dateandtime.HeaderText = "date & time of Medecine added";
             this.dateandtime.Name = "dateandtime";
             this.dateandtime.ReadOnly = true;
             // 
