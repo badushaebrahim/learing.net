@@ -99,12 +99,15 @@ namespace Login
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
             this.button1.Location = new System.Drawing.Point(230, 407);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 52);
             this.button1.TabIndex = 3;
             this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
@@ -147,6 +150,7 @@ namespace Login
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 40, 40);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pharmacy";
             this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);

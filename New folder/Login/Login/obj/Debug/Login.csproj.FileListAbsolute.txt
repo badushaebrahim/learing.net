@@ -10,3 +10,4 @@ C:\Users\badus\Desktop\claysis learn\New folder\Login\Login\obj\Debug\Login.exe
 C:\Users\badus\Desktop\claysis learn\New folder\Login\Login\obj\Debug\Login.pdb
 C:\Users\badus\Desktop\claysis learn\New folder\Login\Login\obj\Debug\Login.Login.resources
 C:\Users\badus\Desktop\claysis learn\New folder\Login\Login\obj\Debug\Login.dash.resources
+C:\Users\badus\Desktop\claysis learn\New folder\Login\Login\obj\Debug\Login.addmed.resources

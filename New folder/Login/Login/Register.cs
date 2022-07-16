@@ -143,7 +143,10 @@ namespace Login
 
                     if (i != 0)
                     {
-                        MessageBox.Show(i + "User Created");
+                        MessageBox.Show("User Created");
+                        Login n = new Login();
+                        this.Hide();
+                        n.Show();
                     }
                 }
                 catch (SqlException e2)
@@ -163,6 +166,11 @@ namespace Login
         private void textBox5_TextChanged(object sender, KeyPressEventArgs e)
         {
             MessageBox.Show("ss");
+        }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

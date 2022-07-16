@@ -13,6 +13,7 @@ namespace Login
 {
     public partial class Login : Form
     {
+        public static string userid = "user";
         public Login()
         {
             InitializeComponent();
@@ -35,26 +36,28 @@ namespace Login
             }
             else
             {
-                String constring = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=badusha;Integrated Security=True";
+               // String constring = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=badusha;Integrated Security=True";
 
-                SqlConnection con = new SqlConnection(constring);
+                //SqlConnection con = new SqlConnection(constring);
 
-                con.Open();
+                //con.Open();
 
                 String Email = textBox1.Text;
                 String Password = textBox2.Text;
 
                 String qr = "EXEC dbo.USER_TABLE_CRUD @Type='userLogin', @Email='" + Email + "',@Password='" + Password + "';";
                 //MessageBox.Show(qr);
-                SqlDataAdapter sda = new SqlDataAdapter(qr, con);
+                //SqlDataAdapter sda = new SqlDataAdapter(qr, con);
+                DatabaseAcces db = new DatabaseAcces(qr);
                 DataTable dt = new DataTable();
-                sda.Fill(dt);
+                db.sda.Fill(dt);
                 if (dt.Rows.Count == 1)
                 {
                     this.Hide();
                     //simple_dash ds = new simple_dash();
                     dash ds = new dash();
-                    ds.Show();
+                    //Global.userid =
+       ds.Show();
                    // MessageBox.Show("oks");
 
 

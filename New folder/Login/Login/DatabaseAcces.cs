@@ -23,8 +23,8 @@ namespace Login
 
         }
 
-        ~DatabaseAcces() {
+        /*~DatabaseAcces() {
             con.Close();
-        }
+        }*/
     }
 }
