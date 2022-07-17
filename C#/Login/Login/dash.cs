@@ -13,8 +13,10 @@ namespace Login
 {
     public partial class dash : Form
     {
-        public dash()
+        int logineduserid;
+        public dash(int usrid)
         {
+            logineduserid = usrid;
             InitializeComponent();
         }
        private void dashon_load(object sender , EventArgs e)
@@ -41,7 +43,7 @@ namespace Login
                 UID = (int)dataGridView1.Rows[e.RowIndex].Cells["UID"].Value;
                 paramsid = (int)dataGridView1.Rows[e.RowIndex].Cells["Parmasisid"].Value;
                 priceperunit = (int)dataGridView1.Rows[e.RowIndex].Cells["priceperunit"].Value;
-                editmeds em = new editmeds(nameofmeds, paramsid, priceperunit, UID);
+                editmeds em = new editmeds(nameofmeds, paramsid, priceperunit, UID,logineduserid);
                 em.ShowDialog();
                 this.Close();
             }
@@ -108,7 +110,9 @@ namespace Login
 
         private void addMedecineToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            addmed em = new addmed( logineduserid);
+            em.ShowDialog();
+            this.Close();
         }
     }
 }

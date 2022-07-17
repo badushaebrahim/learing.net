@@ -15,20 +15,21 @@ namespace Login
     public partial class editmeds : Form
     {
         String nameofmeds2;
-        int UID2, paramsid2, priceperunit2;
-        public editmeds(String nameofmeds,int paramsid,int priceperunit,int UID)
+        int UID2, paramsid2, priceperunit2,tuser;
+        public editmeds(String nameofmeds,int paramsid,int priceperunit,int UID,int userid)
         {
             InitializeComponent();
             nameofmeds2 = nameofmeds;
             UID2 = UID;
             priceperunit2 = priceperunit;
             paramsid2 = paramsid;
+            tuser = userid; 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            dash ne = new dash();
+            dash ne = new dash(tuser);
             ne.Show();
         }
 
@@ -69,7 +70,7 @@ namespace Login
                                         MessageBox.Show("Updated ");
                                         //Login n = new Login();
                                         this.Close();
-                        dash ne = new dash();
+                        dash ne = new dash(tuser);
                         ne.Show();
                                         //n.Show();
                                     }

@@ -54,8 +54,10 @@ namespace Login
                 if (dt.Rows.Count == 1)
                 {
                     this.Hide();
-                    //simple_dash ds = new simple_dash();
-                    dash ds = new dash();
+                    //  MessageBox.Show(dt.Rows[0]["Id"]);
+                    //simple_dash ds = new simple_dash()
+                    int uids = (int)dt.Rows[0]["ID"]; 
+                    dash ds = new dash(uids);
                     //Global.userid =
        ds.Show();
                    // MessageBox.Show("oks");
