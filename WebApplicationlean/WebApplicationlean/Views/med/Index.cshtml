@@ -63,9 +63,9 @@ else if (TempData["ErroMessage"] != null)
                 @Html.DisplayFor(modelItem => item.priceperunit)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.UID }, new { @class = "btn btn-primary" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.UID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.UID },new { @class = "btn btn-danger"})
+                @Html.ActionLink("Edit", "Edit", new { id = item.UID }, new { @class = "btn btn-primary" }) 
+                <!--@Html.ActionLink("Details", "Details", new { id = item.UID }) |-->
+                @Html.ActionLink("Delete", "Delete", new { id = item.UID }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
