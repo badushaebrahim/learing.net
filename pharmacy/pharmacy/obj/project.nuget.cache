@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "s/cD7QcMXGlUTjCcgb/eITE9SH70tf476yfbOgRT0xobusNlfNTVCmPJ/OL9sRczDqQ+WH8mmG2TwHO4+E7olQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\badus\\Desktop\\claysis learn\\pharmacy\\pharmacy\\pharmacy.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\badus\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebApplicationlean.Models.modelofmedecine>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (TempData["InfoMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error !</strong> @TempData["InfoMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+    </div>
+}
+else if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        <strong> @TempData["SuccessMessage"]</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+    </div>
+}
+else if (TempData["ErroMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error !</strong> @TempData["ErroMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create",null,new {@class="btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nameofmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parmasisid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateandtime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priceperunit)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nameofmed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parmasisid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateandtime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priceperunit)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UID }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UID },new { @class = "btn btn-danger"})
+            </td>
+        </tr>
+    }
+
+</table>

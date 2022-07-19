@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4hgxuicY8nGanwpsjZaYewu32xFwhWrwkfdZvb9YXlF7mBpxoTOZxjveq530ihzoqHDvo7Eseo8UUj4TU/MuZg==",
+  "dgSpecHash": "oC6JjBvCoSP0NgDbjfGzvf6WwCQEpSGAMDngGu70LzwMn8lKCVtRsPysMctuLyCnDSZDUYAETX7RgdE8HubD6Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\badus\\Desktop\\claysis learn\\New folder\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\badus\\Desktop\\claysis learn\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\badus\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
   ],
