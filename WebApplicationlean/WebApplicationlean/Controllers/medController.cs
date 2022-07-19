@@ -115,9 +115,8 @@ namespace WebApplicationlean.Controllers
             bool Isdeleted = false;
             try
             {
-               // if (ModelState.IsValid)
-                //{
-                    Isdeleted = medDaL.Deletemeds(id,med);
+              
+                    Isdeleted = medDaL.Deletemeds(id);
                     if (Isdeleted)
                     {
                         TempData["SuccessMessage"] = "Delete Success";
@@ -126,7 +125,7 @@ namespace WebApplicationlean.Controllers
                     {
                         TempData["ErroMessage"] = "Delete fail";
                     }
-              //  }
+           
 
 
 

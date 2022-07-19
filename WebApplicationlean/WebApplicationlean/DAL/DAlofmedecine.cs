@@ -150,7 +150,7 @@ namespace WebApplicationlean.DAL
 
         }
         //delete med
-        public bool Deletemeds(int uid,modelofmedecine medmodel)
+        public bool Deletemeds(int uid)
         {
             int id = 0;
             using (SqlConnection con = new SqlConnection(constring))

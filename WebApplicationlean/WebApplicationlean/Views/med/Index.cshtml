@@ -49,25 +49,27 @@ else if (TempData["ErroMessage"] != null)
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nameofmed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Parmasisid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dateandtime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.priceperunit)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.UID }, new { @class = "btn btn-primary" }) 
-                <!--@Html.ActionLink("Details", "Details", new { id = item.UID }) |-->
-                @Html.ActionLink("Delete", "Delete", new { id = item.UID }, new { @class = "btn btn-danger" })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nameofmed)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.priceperunit)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Parmasisid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.dateandtime)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.UID }, new { @class = "btn btn-primary" })
+        <!--@Html.ActionLink("Details", "Details", new { id = item.UID }) |-->
+        @Html.ActionLink("Delete", "Delete", new { id = item.UID }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
     }
 
 </table>
+<a href="/home/Contact">badusha</a>
