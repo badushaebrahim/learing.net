@@ -65,7 +65,8 @@ namespace WebApplicationlean.Controllers
         // GET: med/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var meditem = medDaL.GetMedecinesbyID(id).FirstOrDefault();
+            return View(meditem);
         }
 
         // POST: med/Edit/5

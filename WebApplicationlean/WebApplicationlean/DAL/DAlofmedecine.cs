@@ -14,7 +14,7 @@ namespace WebApplicationlean.DAL
     {
         String constring = ConfigurationManager.ConnectionStrings["adoConnectionString"].ToString();
         //String constring = "Data Source=.\\SQLEXPRESS;Initial Catalog=badusha;Integrated Security=True";
-        //get medecines
+        //get all medecines
         public List<modelofmedecine> GetMedecines()
         {
             List<modelofmedecine> medecineslist = new List<modelofmedecine>();
@@ -52,7 +52,7 @@ namespace WebApplicationlean.DAL
 
             return medecineslist;
         }
-
+        //insert meds
         public  bool Insertmeds(modelofmedecine  medmodel)
         {
             int id = 0;
@@ -80,6 +80,47 @@ namespace WebApplicationlean.DAL
 
             
         }
+        //GET BY ID
+        public List<modelofmedecine> GetMedecinesbyID(int Id)
+        {
+            List<modelofmedecine> medecineslist = new List<modelofmedecine>();
 
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.CommandText = "dbo.getmed";
+                //cmd.CommandText = "SELECT * FROM dbo.medsdetails";
+                cmd.CommandText = "dbo.MEDDETAIL_TABLE_CRUD";
+                cmd.Parameters.AddWithValue("@ACTIONTYPE", "medbyid");
+                cmd.Parameters.AddWithValue("@UID", Id);
+                //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable td = new DataTable();
+
+
+                sda.Fill(td);
+                con.Close();
+                foreach (DataRow dr in td.Rows)
+                {
+                    medecineslist.Add(new modelofmedecine
+                    {
+                        Nameofmed = dr["Nameofmed"].ToString(),
+                        Parmasisid = Convert.ToInt32(dr["Parmasisid"]),
+                        dateandtime = dr["dateandtime"].ToString(),
+                        priceperunit = Convert.ToInt32(dr["priceperunit"]),
+                        UID = Convert.ToInt32(dr["UID"])
+
+
+                    });
+                }
+            }
+
+            return medecineslist;
+        }
+
+        //update med 
+       // public 
     }
 }
