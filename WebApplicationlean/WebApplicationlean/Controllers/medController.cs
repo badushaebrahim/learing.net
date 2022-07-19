@@ -71,16 +71,32 @@ namespace WebApplicationlean.Controllers
 
         // POST: med/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(modelofmedecine med)
         {
+
+            bool Isinserted = false;
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    Isinserted = medDaL.Updatemeds(med);
+                    if (Isinserted)
+                    {
+                        TempData["SuccessMessage"] = "saved data";
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "fail";
+                    }
+                }
+
+
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                TempData["ErroMessage"] = ex.Message;
                 return View();
             }
         }
@@ -88,21 +104,37 @@ namespace WebApplicationlean.Controllers
         // GET: med/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var meditem = medDaL.GetMedecinesbyID(id).FirstOrDefault();
+            return View(meditem);
         }
 
         // POST: med/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id,modelofmedecine med)
         {
+            bool Isdeleted = false;
             try
             {
-                // TODO: Add delete logic here
+               // if (ModelState.IsValid)
+                //{
+                    Isdeleted = medDaL.Deletemeds(id,med);
+                    if (Isdeleted)
+                    {
+                        TempData["SuccessMessage"] = "Delete Success";
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "Delete fail";
+                    }
+              //  }
+
+
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                TempData["ErroMessage"] = ex.Message;
                 return View();
             }
         }

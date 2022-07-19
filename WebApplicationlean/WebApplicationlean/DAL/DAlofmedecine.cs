@@ -121,6 +121,62 @@ namespace WebApplicationlean.DAL
         }
 
         //update med 
-       // public 
+        public bool Updatemeds(modelofmedecine medmodel)
+        {
+            int id = 0;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.MEDDETAIL_TABLE_CRUD", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ACTIONTYPE", "updatemeds");
+                cmd.Parameters.AddWithValue("@nameofmed", medmodel.Nameofmed);
+                cmd.Parameters.AddWithValue("@paramsid", medmodel.Parmasisid);
+                cmd.Parameters.AddWithValue("@price", medmodel.priceperunit);
+                cmd.Parameters.AddWithValue("@UID", medmodel.UID);
+                id = cmd.ExecuteNonQuery();
+                con.Close();
+                if (id > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+
+
+        }
+        //delete med
+        public bool Deletemeds(int uid,modelofmedecine medmodel)
+        {
+            int id = 0;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.MEDDETAIL_TABLE_CRUD", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ACTIONTYPE", "deletemeds");
+               // cmd.Parameters.AddWithValue("@nameofmed", medmodel.Nameofmed);
+               // cmd.Parameters.AddWithValue("@paramsid", medmodel.Parmasisid);
+               // cmd.Parameters.AddWithValue("@price", medmodel.priceperunit);
+                cmd.Parameters.AddWithValue("@UID", uid);
+                id = cmd.ExecuteNonQuery();
+                con.Close();
+                if (id > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+
+
+        }
     }
 }
