@@ -20,7 +20,11 @@ namespace WebApplicationlean.Controllers
 
             return View();
         }
-
+        public ActionResult Logout()
+        {
+            Session["userid"] = null;
+            return RedirectToAction("Login");
+        }
         // POST: med/Create
         [HttpPost]
         public ActionResult Register(Userregmodel1 usr)
