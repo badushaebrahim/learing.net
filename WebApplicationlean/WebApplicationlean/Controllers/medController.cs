@@ -53,8 +53,49 @@ namespace WebApplicationlean.Controllers
             }
            
         }
+        //login view
+        public ActionResult Login()
+        {
+            return View();
+        }
+        //login request
+        [HttpPost]
+        public ActionResult Login(userloginmodel usr)
+        {
+            bool Islogin = false;
 
-        
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    /*  Islogin = medDaL.Rgisternewuer(usr);
+                      if (Islogin)
+                      {*/
+                    TempData["SuccessMessage"] = "register complete emial:"+usr.Email+";pwd="+usr.Password;
+                    /*
+                    }
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "model fail in register";
+
+
+                }*/
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "model fail in login";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
+
 
         // GET: med
         public ActionResult Index()

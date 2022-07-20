@@ -16,7 +16,7 @@ namespace WebApplicationlean
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "med", action = "Register", id = UrlParameter.Optional }
+                defaults: new { controller = "med", action = "Login", id = UrlParameter.Optional }
             );
         }
     }

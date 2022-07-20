@@ -193,7 +193,7 @@ namespace WebApplicationlean.DAL
 
         }
 
-        //
+        //dal to register new pharmasist
         public bool Rgisternewuer(Userregmodel1 usrmodel)
         {
             int id = 0;
