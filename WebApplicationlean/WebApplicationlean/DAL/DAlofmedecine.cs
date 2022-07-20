@@ -228,6 +228,46 @@ namespace WebApplicationlean.DAL
 
         }
 
+        public String Userlogin(userloginmodel usrmodel)
+        {
+            int id = 0;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.USER_TABLE_CRUD", con);
+                String pass = hashpwd(usrmodel.Password);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TYPE", "userLogin");
+                // cmd.Parameters.AddWithValue("@Name", usrmodel.Name);
+                // cmd.Parameters.AddWithValue("@DOB", usrmodel.DOB);
+                cmd.Parameters.AddWithValue("@Email", usrmodel.Email);
+                cmd.Parameters.AddWithValue("@Password", pass);
+                //cmd.Parameters.AddWithValue("@PhoneNumber", usrmodel.PhoneNumber);
+                //  cmd.Parameters.AddWithValue("@Gender", usrmodel.Gender);
+                // cmd.Parameters.AddWithValue("@Role", "Pharmasist");
 
+                id = cmd.ExecuteNonQuery();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                con.Close();
+                if (dt.Rows.Count == 0)
+                {
+                    return "F";
+                }
+                else
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+
+                        String val = dr["ID"].ToString();
+                        return val;
+                    }
+                }
+
+            }
+            return "F";
+        }
     }
 }

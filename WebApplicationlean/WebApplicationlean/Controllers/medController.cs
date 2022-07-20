@@ -62,31 +62,36 @@ namespace WebApplicationlean.Controllers
         [HttpPost]
         public ActionResult Login(userloginmodel usr)
         {
-            bool Islogin = false;
+            String res;
 
             try
             {
                 if (ModelState.IsValid)
                 {
-                    /*  Islogin = medDaL.Rgisternewuer(usr);
-                      if (Islogin)
-                      {*/
-                    TempData["SuccessMessage"] = "register complete emial:"+usr.Email+";pwd="+usr.Password;
-                    /*
+                     res = medDaL.Userlogin(usr);
+                      if (res != "F")
+                      {
+                        TempData["SuccessMessage"] = res;
+                        Session["userid"] = res;
+                        
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "not model ";
+                        return View();
+
                     }
                 }
                 else
                 {
                     TempData["ErroMessage"] = "model fail in register";
+                    return View();
 
 
-                }*/
-                    return RedirectToAction("Index");
+
                 }
-                else
-                {
-                    TempData["ErroMessage"] = "model fail in login";
-                }
+                return RedirectToAction("Index");
+               
             }
             catch (Exception ex)
             {
