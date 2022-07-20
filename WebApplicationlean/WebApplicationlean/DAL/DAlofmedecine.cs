@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 
 using WebApplicationlean.Models;
@@ -12,6 +14,18 @@ namespace WebApplicationlean.DAL
 {
     public class DAlofmedecine
     {
+        //hasing function
+        public static string hashpwd(string password)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            UTF8Encoding encoder = new UTF8Encoding();
+            Byte[] originalBytes = encoder.GetBytes(password);
+            Byte[] encodedBytes = md5.ComputeHash(originalBytes);
+            password = BitConverter.ToString(encodedBytes).Replace("-", "");
+            var result = password;
+            return result;
+        }
+
         String constring = ConfigurationManager.ConnectionStrings["adoConnectionString"].ToString();
         //String constring = "Data Source=.\\SQLEXPRESS;Initial Catalog=badusha;Integrated Security=True";
         //get all medecines
@@ -178,5 +192,42 @@ namespace WebApplicationlean.DAL
 
 
         }
+
+        //
+        public bool Rgisternewuer(Userregmodel1 usrmodel)
+        {
+            int id = 0;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.USER_TABLE_CRUD", con);
+                String pass = hashpwd(usrmodel.Password);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TYPE", "addNewsuser");
+                cmd.Parameters.AddWithValue("@Name", usrmodel.Name);
+                cmd.Parameters.AddWithValue("@DOB", usrmodel.DOB);
+                cmd.Parameters.AddWithValue("@Email", usrmodel.Email);
+                cmd.Parameters.AddWithValue("@Password", pass);
+                cmd.Parameters.AddWithValue("@PhoneNumber", usrmodel.PhoneNumber);
+                cmd.Parameters.AddWithValue("@Gender", usrmodel.Gender);
+                cmd.Parameters.AddWithValue("@Role", "Pharmasist");
+
+                id = cmd.ExecuteNonQuery();
+                con.Close();
+                if (id > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+
+
+        }
+
+
     }
 }

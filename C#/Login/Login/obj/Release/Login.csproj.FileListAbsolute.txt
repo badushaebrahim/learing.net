@@ -1,0 +1,14 @@
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\bin\Release\Login.exe.config
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\bin\Release\Login.exe
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\bin\Release\Login.pdb
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.csproj.AssemblyReference.cache
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.addmed.resources
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.dash.resources
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.editmeds.resources
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.Login.resources
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.Properties.Resources.resources
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.Register.resources
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.csproj.GenerateResource.cache
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.csproj.CoreCompileInputs.cache
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.exe
+C:\Users\badus\Desktop\claysis learn\C#\Login\Login\obj\Release\Login.pdb

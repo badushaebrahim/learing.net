@@ -127,6 +127,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\modelofmedecine.cs" />
+    <Compile Include="Models\Userregmodel1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +170,7 @@
     <Content Include="Views\med\Create.cshtml" />
     <Content Include="Views\med\Delete.cshtml" />
     <Content Include="Views\med\Edit.cshtml" />
+    <Content Include="Views\med\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

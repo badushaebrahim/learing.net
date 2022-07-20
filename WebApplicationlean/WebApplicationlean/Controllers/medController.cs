@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using WebApplicationlean.DAL;
@@ -12,6 +14,48 @@ namespace WebApplicationlean.Controllers
     {
 
         DAlofmedecine medDaL = new DAlofmedecine();
+
+        public ActionResult Register()
+        {
+
+            return View();
+        }
+
+        // POST: med/Create
+        [HttpPost]
+        public ActionResult Register(Userregmodel1 usr)
+        {
+            bool Isinserted = false;
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Isinserted = medDaL.Rgisternewuer(usr);
+                    if (Isinserted)
+                    {
+                        TempData["SuccessMessage"] = "register complete";
+                       
+                    }
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "model fail in register";
+                 
+
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return RedirectToAction("Index");
+            }
+           
+        }
+
+        
+
         // GET: med
         public ActionResult Index()
         {
