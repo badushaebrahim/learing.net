@@ -1,73 +1,89 @@
 ﻿@model WebApplicationlean.Models.userloginmodel
 
 @{
-    ViewBag.Title = "Login";
+    Layout = null;
 }
 
-<h2>Login</h2>
-@if (TempData["InfoMessage"] != null)
-{
-    <div class="alert alert-danger">
-        <strong>Error !</strong> @TempData["InfoMessage"]
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
-    </div>
-}
-else if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        <strong> @TempData["SuccessMessage"]</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
-    </div>
-}
-else if (TempData["ErroMessage"] != null)
-{
-    <div class="alert alert-danger">
-        <strong>Error !</strong> @TempData["ErroMessage"]
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
-    </div>
-}
+<!DOCTYPE html>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal container-xl">
-      
-            <h4>user login</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group mb-3">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control mb-3" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+<html>
+<head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body style="background-color: #508bfc;">
+    <section class="container" style="background-color: #508bfc; ">
+        <div class="container">
+            @if (TempData["InfoMessage"] != null)
+            {
+                <div class="alert alert-danger">
+                    <strong>Error !</strong> @TempData["InfoMessage"]
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
                 </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            }
+            else if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">
+                    <strong> @TempData["SuccessMessage"]</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
                 </div>
-            </div>
-            <div style="justify-content:center">
-                if you already have an account  @Html.ActionLink("Register", "Register")
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
+            }
+            else if (TempData["ErroMessage"] != null)
+            {
+                <div class="alert alert-danger">
+                    <strong>Error !</strong> @TempData["ErroMessage"]
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+                </div>
+            }
+        <div class="row d-flex justify-content-center align-items-center h-100" style="background-color: white;padding:40px;">
+            <div class="card-body"  >
+               <div class="justify-content-center" ><h2>User login</h2></div> 
+                <br />
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+
+
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group has-success" >
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group has-success">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control mb-3", @type = "password" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <br />
+                    </div>
                     <br />
-                    <input type="submit" value="Create" class="btn btn-info btn-lg btn-block" />
-                </div>
-            </div>
+
+                    <br />
+                    <div style="justify-content:center">
+                        if you already have an account  @Html.ActionLink("Register", "Register")
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-lg btn-block btn-primary" />
+                        </div>
+                    </div>
+
+
+                }
+            </div><!---->
         </div>
-    
-}
-
-<!--<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>-->
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+            </div>
+        </section>
+</body>
+</html>

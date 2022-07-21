@@ -150,6 +150,10 @@ namespace WebApplicationlean.Controllers
                         TempData["ErroMessage"] = "fail";
                     }
                 }
+                else
+                {
+                    TempData["ErroMessage"] = "model error";
+                }
                 
 
 
