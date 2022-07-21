@@ -15,6 +15,12 @@ namespace WebApplicationlean.Controllers
 
         DAlofmedecine medDaL = new DAlofmedecine();
 
+
+        public ActionResult Home()
+        {
+            return View();
+        }
+
         public ActionResult Register()
         {
 
@@ -48,12 +54,12 @@ namespace WebApplicationlean.Controllers
                  
 
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
             catch (Exception ex)
             {
                 TempData["ErroMessage"] = ex.Message;
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
            
         }
