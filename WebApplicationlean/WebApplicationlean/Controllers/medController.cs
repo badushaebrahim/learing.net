@@ -241,5 +241,119 @@ namespace WebApplicationlean.Controllers
                 return View();
             }
         }
+
+        public ActionResult Supplyerpage()
+        {
+            var supply = medDaL.Getsupply();
+            return View(supply);
+        }
+        ///supply insert
+        public ActionResult Createsupplyer()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Createsupplyer(modelofsupplyer usr)
+        {
+            bool Isinserted = false;
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Isinserted = medDaL.Insertsupplyer(usr);
+                    if (Isinserted)
+                    {
+                        TempData["SuccessMessage"] = "saved data";
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "fail";
+                    }
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "model error";
+                }
+
+
+
+                return RedirectToAction("Supplyerpage");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return View();
+            }
+        }
+        //supply edit
+        public ActionResult EditSupplyer(int id)
+        {
+            var supdetail = medDaL.Getsupplybyid(id).FirstOrDefault();
+            return View(supdetail);
+        }
+        [HttpPost]
+        public ActionResult EditSupplyer(modelofsupplyer sup)
+        {
+            bool Isinserted = false;
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Isinserted = medDaL.Updatesupplyer(sup);
+                    if (Isinserted)
+                    {
+                        TempData["SuccessMessage"] = "saved data";
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "fail";
+                    }
+                }
+
+
+
+                return RedirectToAction("Supplyerpage");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return View();
+            }
+        }
+
+        public ActionResult Deletesupplyer(int id) {
+
+            var supsetails = medDaL.Getsupplybyid(id).FirstOrDefault();
+            return View(supsetails);
+        }
+        [HttpPost]
+        public ActionResult Deletesupplyer(int id,modelofsupplyer mod)
+        {
+            bool Isdeleted = false;
+            try
+            {
+
+                Isdeleted = medDaL.Deletesupplyer(id);
+                if (Isdeleted)
+                {
+                    TempData["SuccessMessage"] = "Delete Success";
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "Delete fail";
+                }
+
+
+
+
+                return RedirectToAction("Supplyerpage");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return View();
+            }
+        }
+
     }
 }

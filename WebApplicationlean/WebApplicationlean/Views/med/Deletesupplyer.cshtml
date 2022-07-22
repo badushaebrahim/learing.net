@@ -1,0 +1,80 @@
+﻿@model WebApplicationlean.Models.modelofsupplyer
+
+@{
+    ViewBag.Title = "Deletesupplyer";
+}
+
+<h2>Deletesupplyer</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>modelofsupplyer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplyername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplyername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Companyname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Companyname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplyerAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplyerAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phonenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
