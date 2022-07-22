@@ -20,9 +20,9 @@ namespace WebApplicationlean.Models
         public String Email { get; set; }
         [Required]
         public String  Password { get; set; }
+        [Required]
         [NotMapped] // Does not effect with your database
         [Compare("Password")]
-        
         public string ConfirmPassword { get; set; }
 
 

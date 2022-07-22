@@ -53,8 +53,8 @@ namespace WebApplicationlean.Controllers
                 else
                 {
                     TempData["ErroMessage"] = "model fail in register";
-                 
 
+                    return View();
                 }
                 return RedirectToAction("Login");
             }
