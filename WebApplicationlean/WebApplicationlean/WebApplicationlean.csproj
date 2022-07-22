@@ -126,8 +126,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\modelofinventory.cs" />
     <Compile Include="Models\modelofmedecine.cs" />
     <Compile Include="Models\modelofsupplyer.cs" />
+    <Compile Include="Models\supplyeridandname.cs" />
     <Compile Include="Models\userloginmodel.cs" />
     <Compile Include="Models\Userregmodel1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -313,6 +315,7 @@
     <Content Include="Views\med\Createsupplyer.cshtml" />
     <Content Include="Views\med\EditSupplyer.cshtml" />
     <Content Include="Views\med\Deletesupplyer.cshtml" />
+    <Content Include="Views\med\inventorypage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

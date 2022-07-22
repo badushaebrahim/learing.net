@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -19,6 +20,12 @@ namespace WebApplicationlean.Models
         public String Email { get; set; }
         [Required]
         public String  Password { get; set; }
+        [NotMapped] // Does not effect with your database
+        [Compare("Password")]
+        
+        public string ConfirmPassword { get; set; }
+
+
         [Required(ErrorMessage = "You must provide a phone number")]
         [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]

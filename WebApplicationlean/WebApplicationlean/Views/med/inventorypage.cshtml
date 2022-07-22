@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApplicationlean.Models.modelofinventory>
+
+@{
+    ViewBag.Title = "inventorypage";
+}
+
+<h2>inventorypage</h2>
+@if (TempData["ErroMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error !</strong> @TempData["ErroMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+    </div>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.medid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priceperunit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITEMID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.medid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priceperunit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ITEMID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

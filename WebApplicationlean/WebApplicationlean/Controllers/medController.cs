@@ -15,6 +15,8 @@ namespace WebApplicationlean.Controllers
 
         DAlofmedecine medDaL = new DAlofmedecine();
 
+        
+
 
         public ActionResult Home()
         {
@@ -94,8 +96,8 @@ namespace WebApplicationlean.Controllers
                 }
                 else
                 {
-                    TempData["ErroMessage"] = "model fail in register";
-                    return View();
+                    TempData["ErroMessage"] = "Invalid Data error";
+                    return View(); 
 
 
 
@@ -354,6 +356,12 @@ namespace WebApplicationlean.Controllers
                 return View();
             }
         }
+
+        public ActionResult inventorypage()
+        {
+            return View();
+        }
+
 
     }
 }

@@ -453,5 +453,12 @@ namespace WebApplicationlean.DAL
             }
             return "F";
         }
+
+        //get supplyer id and name
+
+
+
+
+
     }
 }
