@@ -40,22 +40,22 @@ namespace WebApplicationlean.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.CommandText = "dbo.getmed";
                 //cmd.CommandText = "SELECT * FROM dbo.medsdetails";
-               cmd.CommandText = "dbo.MEDDETAIL_TABLE_CRUD";
-               cmd.Parameters.AddWithValue("@ACTIONTYPE",  "getallmeds");
+                cmd.CommandText = "dbo.MEDDETAIL_TABLE_CRUD";
+                cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
                 //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable td = new DataTable();
-                
-                
+
+
                 sda.Fill(td);
                 con.Close();
-                foreach(DataRow dr  in td.Rows)
+                foreach (DataRow dr in td.Rows)
                 {
                     medecineslist.Add(new modelofmedecine
                     {
                         Nameofmed = dr["Nameofmed"].ToString(),
-                        Parmasisid = Convert.ToInt32(  dr["Parmasisid"]),
-                        dateandtime =dr["dateandtime"].ToString(),
+                        Parmasisid = Convert.ToInt32(dr["Parmasisid"]),
+                        dateandtime = dr["dateandtime"].ToString(),
                         priceperunit = Convert.ToInt32(dr["priceperunit"]),
                         UID = Convert.ToInt32(dr["UID"])
 
@@ -76,9 +76,9 @@ namespace WebApplicationlean.DAL
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
-              cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
                 //cmd.CommandText = "dbo.getmed";
-               // cmd.CommandText = "SELECT * FROM dbo.supplyerid";
+                // cmd.CommandText = "SELECT * FROM dbo.supplyerid";
                 cmd.CommandText = "dbo.SUPPLYERID_TABLE_CRUD";
                 cmd.Parameters.AddWithValue("@TYPE", "getsupplyerfull");
                 //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
@@ -152,18 +152,18 @@ namespace WebApplicationlean.DAL
         /// </summary>
 
         //insert meds
-        public bool Insertmeds(modelofmedecine  medmodel)
+        public bool Insertmeds(modelofmedecine medmodel)
         {
             int id = 0;
-            using(SqlConnection con = new SqlConnection(constring))
+            using (SqlConnection con = new SqlConnection(constring))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("dbo.MEDDETAIL_TABLE_CRUD",con);
+                SqlCommand cmd = new SqlCommand("dbo.MEDDETAIL_TABLE_CRUD", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ACTIONTYPE", "addnewmeds");
                 cmd.Parameters.AddWithValue("@nameofmed", medmodel.Nameofmed);
                 cmd.Parameters.AddWithValue("@paramsid", medmodel.Parmasisid);
-                cmd.Parameters.AddWithValue("@price",medmodel.priceperunit);
+                cmd.Parameters.AddWithValue("@price", medmodel.priceperunit);
                 id = cmd.ExecuteNonQuery();
                 con.Close();
                 if (id > 0)
@@ -177,7 +177,7 @@ namespace WebApplicationlean.DAL
 
             }
 
-            
+
         }
         //insert model
         public bool Insertsupplyer(modelofsupplyer supmodel)
@@ -248,12 +248,12 @@ namespace WebApplicationlean.DAL
                 SqlCommand cmd = new SqlCommand("dbo.SUPPLYERID_TABLE_CRUD", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@TYPE", "deletesupplyerbyid");
-               // cmd.Parameters.AddWithValue("@Supplyername", supmodel.Supplyername);
-               // cmd.Parameters.AddWithValue("@Companyname", supmodel.Companyname);
-               // cmd.Parameters.AddWithValue("@SupplyerAddress", supmodel.SupplyerAddress);
-               // cmd.Parameters.AddWithValue("@Email", supmodel.Email);
-               // cmd.Parameters.AddWithValue("@Phonenumber", supmodel.Phonenumber);
-               // cmd.Parameters.AddWithValue("@SID", supmodel.SID);
+                // cmd.Parameters.AddWithValue("@Supplyername", supmodel.Supplyername);
+                // cmd.Parameters.AddWithValue("@Companyname", supmodel.Companyname);
+                // cmd.Parameters.AddWithValue("@SupplyerAddress", supmodel.SupplyerAddress);
+                // cmd.Parameters.AddWithValue("@Email", supmodel.Email);
+                // cmd.Parameters.AddWithValue("@Phonenumber", supmodel.Phonenumber);
+                // cmd.Parameters.AddWithValue("@SID", supmodel.SID);
                 cmd.Parameters.AddWithValue("@SID", SID);
                 id = cmd.ExecuteNonQuery();
                 con.Close();
@@ -357,9 +357,9 @@ namespace WebApplicationlean.DAL
                 SqlCommand cmd = new SqlCommand("dbo.MEDDETAIL_TABLE_CRUD", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ACTIONTYPE", "deletemeds");
-               // cmd.Parameters.AddWithValue("@nameofmed", medmodel.Nameofmed);
-               // cmd.Parameters.AddWithValue("@paramsid", medmodel.Parmasisid);
-               // cmd.Parameters.AddWithValue("@price", medmodel.priceperunit);
+                // cmd.Parameters.AddWithValue("@nameofmed", medmodel.Nameofmed);
+                // cmd.Parameters.AddWithValue("@paramsid", medmodel.Parmasisid);
+                // cmd.Parameters.AddWithValue("@price", medmodel.priceperunit);
                 cmd.Parameters.AddWithValue("@UID", uid);
                 id = cmd.ExecuteNonQuery();
                 con.Close();
@@ -454,20 +454,56 @@ namespace WebApplicationlean.DAL
             return "F";
         }
 
-        //get supplyer id and name
-
-       
-        public List<SelectListItem> medecinedropdown()
+        //insert into inventory
+        public bool Insertintoinventory(testmodel inv)
         {
-            List<SelectListItem> med = new List<SelectListItem>(); using (SqlConnection con = new SqlConnection(constring))
+            int id = 0;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.INVENTORY_CRUD", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TYPE", "addtoinv");
+                cmd.Parameters.AddWithValue("@medid", inv.medid);
+                cmd.Parameters.AddWithValue("@CustomName", inv.Customname);
+                cmd.Parameters.AddWithValue("@supid", inv.supid);
+                cmd.Parameters.AddWithValue("@quantity", inv.quantity);
+                cmd.Parameters.AddWithValue("@priceperunit", inv.priceperunit);
+
+
+
+                id = cmd.ExecuteNonQuery();
+                con.Close();
+                if (id > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+
+
+        }
+
+        //get all in inventory
+
+
+        public List<inventorylistmodelwithjoin> GetInventoryAll()
+        {
+            List<inventorylistmodelwithjoin> invlist = new List<inventorylistmodelwithjoin>();
+
+            using (SqlConnection con = new SqlConnection(constring))
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
-
-
-                cmd.CommandText = "SELECT * FROM dbo.medsdetails";
-                // cmd.CommandText = "dbo.MEDDETAIL_TABLE_CRUD";
-                //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.CommandText = "dbo.getmed";
+                //cmd.CommandText = "SELECT * FROM dbo.medsdetails";
+                cmd.CommandText = "dbo.INVENTORY_CRUD";
+                cmd.Parameters.AddWithValue("@TYPE", "getallinv");
                 //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable td = new DataTable();
@@ -477,24 +513,133 @@ namespace WebApplicationlean.DAL
                 con.Close();
                 foreach (DataRow dr in td.Rows)
                 {
-                    int conv = Convert.ToInt32(dr["UID"]);
-                    String ids = conv.ToString();
-                    med.Add(new SelectListItem
+                    invlist.Add(new inventorylistmodelwithjoin
                     {
-                        Value = ids,
-                        Text = dr["Nameofmed"].ToString(),
+                        Medecine = dr["Nameofmed"].ToString(),
+                        Supplier = dr["Supplyername"].ToString(),
+                        Customname = dr["Customname"].ToString(),
+                        medid = Convert.ToInt32(dr["medid"]),
+                        supid = Convert.ToInt32(dr["supid"]),
+                        quantity = Convert.ToInt32(dr["quantity"]),
+                        priceperunit = Convert.ToInt32(dr["priceperunit"]),
+                        itemid = Convert.ToInt32(dr["itemid"]),
 
 
-                    }); ;
+
+
+                    });
                 }
             }
 
-            return med;
+            return invlist;
+        }
+        public List<inventorylistmodelwithjoin> GetInventoryAllbyID(int id)
+        {
+            List<inventorylistmodelwithjoin> invlist = new List<inventorylistmodelwithjoin>();
 
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.CommandText = "dbo.getmed";
+                //cmd.CommandText = "SELECT * FROM dbo.medsdetails";
+                cmd.CommandText = "dbo.INVENTORY_CRUD";
+                cmd.Parameters.AddWithValue("@TYPE", "getinvbyid");
+                cmd.Parameters.AddWithValue("@itemid", id);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable td = new DataTable();
+
+
+                sda.Fill(td);
+                con.Close();
+                foreach (DataRow dr in td.Rows)
+                {
+                    invlist.Add(new inventorylistmodelwithjoin
+                    {
+                        Medecine = dr["Nameofmed"].ToString(),
+                        Supplier = dr["Supplyername"].ToString(),
+                        Customname = dr["Customname"].ToString(),
+                        medid = Convert.ToInt32(dr["medid"]),
+                        supid = Convert.ToInt32(dr["supid"]),
+                        quantity = Convert.ToInt32(dr["quantity"]),
+                        priceperunit = Convert.ToInt32(dr["priceperunit"]),
+                        itemid = Convert.ToInt32(dr["itemid"]),
+
+
+
+
+                    });
+                }
+            }
+
+            return invlist;
         }
 
 
 
 
+
+        public bool DeleteInventory(int SID,inventorylistmodelwithjoin mod)
+        {
+            int id = 0;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.INVENTORY_CRUD", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TYPE", "deleteinventory");
+                // cmd.Parameters.AddWithValue("@Supplyername", supmodel.Supplyername);
+                // cmd.Parameters.AddWithValue("@Companyname", supmodel.Companyname);
+                // cmd.Parameters.AddWithValue("@SupplyerAddress", supmodel.SupplyerAddress);
+                // cmd.Parameters.AddWithValue("@Email", supmodel.Email);
+                // cmd.Parameters.AddWithValue("@Phonenumber", supmodel.Phonenumber);
+                // cmd.Parameters.AddWithValue("@SID", supmodel.SID);
+                cmd.Parameters.AddWithValue("@itemid", mod.itemid);
+                id = cmd.ExecuteNonQuery();
+                con.Close();
+                if (id > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+
+
+        }
+
+        //update inv
+        public bool Updateinventory(inventorylistmodelwithjoin inv)
+        {
+            int id = 0;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.INVENTORY_CRUD", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TYPE", "updateinv");
+                cmd.Parameters.AddWithValue("@CustomName", inv.Customname);
+                cmd.Parameters.AddWithValue("@quantity", inv.quantity);
+                cmd.Parameters.AddWithValue("@priceperunit", inv.priceperunit);
+                cmd.Parameters.AddWithValue("@Itemid", inv.itemid);
+                id = cmd.ExecuteNonQuery();
+                con.Close();
+                if (id > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+
+
+        }
     }
 }

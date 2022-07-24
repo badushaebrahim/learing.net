@@ -19,7 +19,7 @@ namespace WebApplicationlean.Controllers
 
         DAlofmedecine medDaL = new DAlofmedecine();
 
-        
+
 
 
         public ActionResult Home()
@@ -51,7 +51,7 @@ namespace WebApplicationlean.Controllers
                     if (Isinserted)
                     {
                         TempData["SuccessMessage"] = "register complete";
-                       
+
                     }
                 }
                 else
@@ -67,7 +67,7 @@ namespace WebApplicationlean.Controllers
                 TempData["ErroMessage"] = ex.Message;
                 return RedirectToAction("Login");
             }
-           
+
         }
         //login view
         public ActionResult Login()
@@ -84,12 +84,12 @@ namespace WebApplicationlean.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                     res = medDaL.Userlogin(usr);
-                      if (res != "F")
-                      {
+                    res = medDaL.Userlogin(usr);
+                    if (res != "F")
+                    {
                         TempData["SuccessMessage"] = res;
                         Session["userid"] = res;
-                        
+
                     }
                     else
                     {
@@ -101,13 +101,13 @@ namespace WebApplicationlean.Controllers
                 else
                 {
                     TempData["ErroMessage"] = "Invalid Data error";
-                    return View(); 
+                    return View();
 
 
 
                 }
                 return RedirectToAction("Index");
-               
+
             }
             catch (Exception ex)
             {
@@ -141,7 +141,7 @@ namespace WebApplicationlean.Controllers
         [HttpPost]
         public ActionResult Create(modelofmedecine med)
         {
-            bool Isinserted =false;
+            bool Isinserted = false;
             try
             {
                 if (ModelState.IsValid)
@@ -160,12 +160,12 @@ namespace WebApplicationlean.Controllers
                 {
                     TempData["ErroMessage"] = "model error";
                 }
-                
+
 
 
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 TempData["ErroMessage"] = ex.Message;
                 return View();
@@ -220,23 +220,21 @@ namespace WebApplicationlean.Controllers
 
         // POST: med/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id,modelofmedecine med)
+        public ActionResult Delete(int id, modelofmedecine med)
         {
             bool Isdeleted = false;
             try
             {
-              
-                    Isdeleted = medDaL.Deletemeds(id);
-                    if (Isdeleted)
-                    {
-                        TempData["SuccessMessage"] = "Delete Success";
-                    }
-                    else
-                    {
-                        TempData["ErroMessage"] = "Delete fail";
-                    }
-           
 
+                Isdeleted = medDaL.Deletemeds(id);
+                if (Isdeleted)
+                {
+                    TempData["SuccessMessage"] = "Delete Success";
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "Delete fail";
+                }
 
 
                 return RedirectToAction("Index");
@@ -327,13 +325,14 @@ namespace WebApplicationlean.Controllers
             }
         }
 
-        public ActionResult Deletesupplyer(int id) {
+        public ActionResult Deletesupplyer(int id)
+        {
 
             var supsetails = medDaL.Getsupplybyid(id).FirstOrDefault();
             return View(supsetails);
         }
         [HttpPost]
-        public ActionResult Deletesupplyer(int id,modelofsupplyer mod)
+        public ActionResult Deletesupplyer(int id, modelofsupplyer mod)
         {
             bool Isdeleted = false;
             try
@@ -363,52 +362,48 @@ namespace WebApplicationlean.Controllers
 
         public ActionResult inventorypage()
         {
-            return View();
+            var data = medDaL.GetInventoryAll();
+            return View(data);
         }
 
 
 
 
-       //test
+        //test
 
         public ActionResult Testside()
         {
             String constring = ConfigurationManager.ConnectionStrings["adoConnectionString"].ToString();
-
-            //  dynamic mymodel = new ExpandoObject();
-            //var supply = medDaL.Supplyerdropdown();
             DataTable td = new DataTable();
             DataTable formed = new DataTable();
             SqlConnection con = new SqlConnection(constring);
-            
-                con.Open();
-                
 
-
-                String qry1= "SELECT * FROM dbo.supplyerid";
-                // cmd.CommandText = "dbo.MEDDETAIL_TABLE_CRUD";
-                //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
-                //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
-                SqlDataAdapter sda = new SqlDataAdapter(qry1,con);
+            con.Open();
 
 
 
-                sda.Fill(td);
-           
+            String qry1 = "SELECT * FROM dbo.supplyerid";
+
+            SqlDataAdapter sda = new SqlDataAdapter(qry1, con);
+
+
+
+            sda.Fill(td);
+
             String qry2 = "SELECT * FROM dbo.medsdetails";
             SqlDataAdapter smd = new SqlDataAdapter(qry2, con);
             smd.Fill(formed);
 
 
 
-                con.Close();
-            ViewBag.meds = ToSelectList(formed, "UID",  "Nameofmed");
-                ViewBag.supply = ToSelectList(td, "SID", "Supplyername");
-           
+            con.Close();
+            ViewBag.meds = ToSelectList(formed, "UID", "Nameofmed");
+            ViewBag.supply = ToSelectList(td, "SID", "Supplyername");
+
             return View();
-        
+
         }
-       
+
 
         [NonAction]
         public SelectList ToSelectList(DataTable table, string valueField, string textField)
@@ -430,6 +425,7 @@ namespace WebApplicationlean.Controllers
         [HttpPost]
         public ActionResult testside(testmodel ts)
         {
+            bool Isinserted = false;
             String constring = ConfigurationManager.ConnectionStrings["adoConnectionString"].ToString();
             DataTable td = new DataTable();
             DataTable formed = new DataTable();
@@ -440,13 +436,7 @@ namespace WebApplicationlean.Controllers
 
 
             String qry1 = "SELECT * FROM dbo.supplyerid";
-            // cmd.CommandText = "dbo.MEDDETAIL_TABLE_CRUD";
-            //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
-            //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
             SqlDataAdapter sda = new SqlDataAdapter(qry1, con);
-
-
-
             sda.Fill(td);
 
             String qry2 = "SELECT * FROM dbo.medsdetails";
@@ -460,22 +450,124 @@ namespace WebApplicationlean.Controllers
             ViewBag.supply = ToSelectList(td, "SID", "Supplyername");
 
 
-            TempData["ErrorMessage"] = "got hit";
             if (ModelState.IsValid)
             {
-                TempData["ErroMessage"] = "pass";
-                return  View();
+                try
+                {
+
+                    Isinserted = medDaL.Insertintoinventory(ts);
+                    if (Isinserted)
+                    {
+                        TempData["SuccessMessage"] = "Added to inventory";
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "fail at inventory adding task";
+                    }
+
+
+
+
+                    return RedirectToAction("inventorypage");
+                }
+                catch (Exception ex)
+                {
+                    TempData["ErroMessage"] = ex.Message;
+                    return View();
+                }
             }
             else
             {
-                TempData["ErroMessage"] = "modelofinventory fail";
                 return View();
             }
 
 
         }
 
-            //test
+       /* public ActionResult inventoryEdit(int Iid)
+        {
+            var data = medDaL.GetInventoryAllbyID(Iid).FirstOrDefault();
+            return View(data);
+        }*/
+
+        // GET: med/Edit/5
+        public ActionResult inventoryEdit(int id)
+        {
+            var meditem = medDaL.GetInventoryAllbyID(id).FirstOrDefault();
+            return View(meditem);
+        }
+
+        [HttpPost]
+        public ActionResult inventoryEdit(inventorylistmodelwithjoin sup)
+        {
+            bool Isinserted = false;
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Isinserted = medDaL.Updateinventory(sup);
+                    if (Isinserted)
+                    {
+                        TempData["SuccessMessage"] = "saved data";
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "fail";
+                    }
+                }
+
+
+
+                return RedirectToAction("inventorypage");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return View();
+            }
+        }
+
+
+
+
+
+
+
+
+        //get all from db inventory 
+        public ActionResult inventoryDelete(int id)
+        {
+            var meditem = medDaL.GetInventoryAllbyID(id).FirstOrDefault();
+            return View(meditem);
+        }
+        //
+        [HttpPost]
+        public ActionResult inventoryDelete(int id, inventorylistmodelwithjoin models)
+        {
+            bool Isdeleted = false;
+            try
+            {
+
+                Isdeleted = medDaL.DeleteInventory(id,models);
+                if (Isdeleted)
+                {
+                    TempData["SuccessMessage"] = "Delete Success";
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "Delete fail";
+                }
+
+
+                return RedirectToAction("inventorypage");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message+"del msg";
+                return View();
+            }
+
 
         }
+    }
 }

@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace WebApplicationlean.Models
 {
-    public class testmodel
+    public class inventorylistmodelwithjoin
     {
+
+        public String  Medecine { get; set; }
+        public String  Supplier { get; set; }
+
         [Required]
         [Display(Name = "supplier")]
         public int supid { get; set; }

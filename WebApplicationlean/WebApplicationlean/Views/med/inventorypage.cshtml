@@ -1,11 +1,25 @@
-﻿@model IEnumerable<WebApplicationlean.Models.modelofinventory>
+﻿@model IEnumerable<WebApplicationlean.Models.inventorylistmodelwithjoin>
 
 @{
     ViewBag.Title = "inventorypage";
 }
 
 <h2>inventorypage</h2>
-@if (TempData["ErroMessage"] != null)
+@if (TempData["InfoMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error !</strong> @TempData["InfoMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+    </div>
+}
+else if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        <strong> @TempData["SuccessMessage"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+    </div>
+}
+else if (TempData["ErroMessage"] != null)
 {
     <div class="alert alert-danger">
         <strong>Error !</strong> @TempData["ErroMessage"]
@@ -13,25 +27,28 @@
     </div>
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "testside", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.medid)
+            @Html.DisplayNameFor(model => model.Medecine)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.sid)
+            @Html.DisplayNameFor(model => model.Supplier)
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.Quantity)
+            @Html.DisplayNameFor(model => model.Customname)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.priceperunit)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ITEMID)
-        </th>
+
         <th></th>
     </tr>
 
@@ -39,24 +56,25 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.medid)
+                @Html.DisplayFor(modelItem => item.Medecine)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.sid)
+                @Html.DisplayFor(modelItem => item.Supplier)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
+                @Html.DisplayFor(modelItem => item.Customname)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.priceperunit)
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.ITEMID)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "inventoryEdit", new { id = item.itemid }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Delete", "inventoryDelete", new { id = item.itemid }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
