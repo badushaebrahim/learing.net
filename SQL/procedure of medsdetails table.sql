@@ -47,3 +47,6 @@ EXEC dbo.MEDDETAIL_TABLE_CRUD @ACTIONTYPE ='joinedallmeds'
 
 EXEC dbo.MEDDETAIL_TABLE_CRUD @ACTIONTYPE ='deletemeds' ,  @UID = 5;
 EXEC dbo.MEDDETAIL_TABLE_CRUD @ACTIONTYPE ='updatemeds' ,@nameofmed = 'ALBENTAZOL2',@paramsid=10,@price=5,  @UID = 6;
+
+
+EXEC dbo.MEDDETAIL_TABLE_CRUD @ACTIONTYPE ='addnewmeds' ,@nameofmed = 'ALBENTAZOL2',@paramsid=10,@price=5;
