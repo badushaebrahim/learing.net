@@ -123,6 +123,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\medController.cs" />
     <Compile Include="DAL\DAlofmedecine.cs" />
+    <Compile Include="DAL\tn.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -130,6 +131,7 @@
     <Compile Include="Models\modelofmedecine.cs" />
     <Compile Include="Models\modelofsupplyer.cs" />
     <Compile Include="Models\supplyeridandname.cs" />
+    <Compile Include="Models\testmodel.cs" />
     <Compile Include="Models\userloginmodel.cs" />
     <Compile Include="Models\Userregmodel1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -316,6 +318,7 @@
     <Content Include="Views\med\EditSupplyer.cshtml" />
     <Content Include="Views\med\Deletesupplyer.cshtml" />
     <Content Include="Views\med\inventorypage.cshtml" />
+    <Content Include="Views\med\testside.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

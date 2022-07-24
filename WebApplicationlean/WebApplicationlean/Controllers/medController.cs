@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Dynamic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -363,5 +367,115 @@ namespace WebApplicationlean.Controllers
         }
 
 
-    }
+
+
+       //test
+
+        public ActionResult Testside()
+        {
+            String constring = ConfigurationManager.ConnectionStrings["adoConnectionString"].ToString();
+
+            //  dynamic mymodel = new ExpandoObject();
+            //var supply = medDaL.Supplyerdropdown();
+            DataTable td = new DataTable();
+            DataTable formed = new DataTable();
+            SqlConnection con = new SqlConnection(constring);
+            
+                con.Open();
+                
+
+
+                String qry1= "SELECT * FROM dbo.supplyerid";
+                // cmd.CommandText = "dbo.MEDDETAIL_TABLE_CRUD";
+                //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
+                //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
+                SqlDataAdapter sda = new SqlDataAdapter(qry1,con);
+
+
+
+                sda.Fill(td);
+           
+            String qry2 = "SELECT * FROM dbo.medsdetails";
+            SqlDataAdapter smd = new SqlDataAdapter(qry2, con);
+            smd.Fill(formed);
+
+
+
+                con.Close();
+            ViewBag.meds = ToSelectList(formed, "UID",  "Nameofmed");
+                ViewBag.supply = ToSelectList(td, "SID", "Supplyername");
+           
+            return View();
+        
+        }
+       
+
+        [NonAction]
+        public SelectList ToSelectList(DataTable table, string valueField, string textField)
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+
+            foreach (DataRow row in table.Rows)
+            {
+                list.Add(new SelectListItem()
+                {
+                    Text = row[textField].ToString(),
+                    Value = row[valueField].ToString()
+                });
+            }
+
+            return new SelectList(list, "Value", "Text");
+        }
+
+        [HttpPost]
+        public ActionResult testside(testmodel ts)
+        {
+            String constring = ConfigurationManager.ConnectionStrings["adoConnectionString"].ToString();
+            DataTable td = new DataTable();
+            DataTable formed = new DataTable();
+            SqlConnection con = new SqlConnection(constring);
+
+            con.Open();
+
+
+
+            String qry1 = "SELECT * FROM dbo.supplyerid";
+            // cmd.CommandText = "dbo.MEDDETAIL_TABLE_CRUD";
+            //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
+            //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
+            SqlDataAdapter sda = new SqlDataAdapter(qry1, con);
+
+
+
+            sda.Fill(td);
+
+            String qry2 = "SELECT * FROM dbo.medsdetails";
+            SqlDataAdapter smd = new SqlDataAdapter(qry2, con);
+            smd.Fill(formed);
+
+
+
+            con.Close();
+            ViewBag.meds = ToSelectList(formed, "UID", "Nameofmed");
+            ViewBag.supply = ToSelectList(td, "SID", "Supplyername");
+
+
+            TempData["ErrorMessage"] = "got hit";
+            if (ModelState.IsValid)
+            {
+                TempData["ErroMessage"] = "pass";
+                return  View();
+            }
+            else
+            {
+                TempData["ErroMessage"] = "modelofinventory fail";
+                return View();
+            }
+
+
+        }
+
+            //test
+
+        }
 }

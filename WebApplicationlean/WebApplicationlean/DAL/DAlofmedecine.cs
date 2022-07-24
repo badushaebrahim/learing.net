@@ -7,7 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
-
+using System.Web.Mvc;
 using WebApplicationlean.Models;
 
 namespace WebApplicationlean.DAL
@@ -456,6 +456,42 @@ namespace WebApplicationlean.DAL
 
         //get supplyer id and name
 
+       
+        public List<SelectListItem> medecinedropdown()
+        {
+            List<SelectListItem> med = new List<SelectListItem>(); using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+
+
+                cmd.CommandText = "SELECT * FROM dbo.medsdetails";
+                // cmd.CommandText = "dbo.MEDDETAIL_TABLE_CRUD";
+                //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
+                //cmd.Parameters.AddWithValue("@ACTIONTYPE", "getallmeds");
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable td = new DataTable();
+
+
+                sda.Fill(td);
+                con.Close();
+                foreach (DataRow dr in td.Rows)
+                {
+                    int conv = Convert.ToInt32(dr["UID"]);
+                    String ids = conv.ToString();
+                    med.Add(new SelectListItem
+                    {
+                        Value = ids,
+                        Text = dr["Nameofmed"].ToString(),
+
+
+                    }); ;
+                }
+            }
+
+            return med;
+
+        }
 
 
 
