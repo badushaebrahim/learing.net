@@ -569,5 +569,37 @@ namespace WebApplicationlean.Controllers
 
 
         }
+
+
+        /////  bill section
+        
+        public ActionResult CreateBill()
+        {
+            String constring = ConfigurationManager.ConnectionStrings["adoConnectionString"].ToString();
+
+       
+            SqlConnection con = new SqlConnection(constring);
+
+            con.Open();
+
+
+            DataTable td = new DataTable();
+            String qry1 = "SELECT * FROM dbo.doctors";
+            SqlDataAdapter sda = new SqlDataAdapter(qry1, con);
+            sda.Fill(td);
+                    con.Close();
+            ViewBag.doc = ToSelectList(td, "DID", "Docname");
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateBill(patientregmodel test)
+        {
+            int bid = 8;
+
+            return RedirectToAction("edit/"+bid);
+        }
+
+
     }
 }

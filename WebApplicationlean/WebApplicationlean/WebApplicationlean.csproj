@@ -131,6 +131,7 @@
     <Compile Include="Models\modelofinventory.cs" />
     <Compile Include="Models\modelofmedecine.cs" />
     <Compile Include="Models\modelofsupplyer.cs" />
+    <Compile Include="Models\patientregmodel.cs" />
     <Compile Include="Models\supplyeridandname.cs" />
     <Compile Include="Models\testmodel.cs" />
     <Compile Include="Models\userloginmodel.cs" />
@@ -322,6 +323,7 @@
     <Content Include="Views\med\testside.cshtml" />
     <Content Include="Views\med\inventoryDelete.cshtml" />
     <Content Include="Views\med\inventoryEdit.cshtml" />
+    <Content Include="Views\med\CreateBill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
