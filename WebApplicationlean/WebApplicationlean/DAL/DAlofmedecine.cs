@@ -595,7 +595,7 @@ namespace WebApplicationlean.DAL
                 // cmd.Parameters.AddWithValue("@Email", supmodel.Email);
                 // cmd.Parameters.AddWithValue("@Phonenumber", supmodel.Phonenumber);
                 // cmd.Parameters.AddWithValue("@SID", supmodel.SID);
-                cmd.Parameters.AddWithValue("@itemid", mod.itemid);
+                cmd.Parameters.AddWithValue("@Itemid", SID);
                 id = cmd.ExecuteNonQuery();
                 con.Close();
                 if (id > 0)
