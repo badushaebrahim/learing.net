@@ -412,8 +412,9 @@ namespace WebApplicationlean.DAL
 
         }
 
-        public String Userlogin(userloginmodel usrmodel)
+        public List<roles>  Userlogin(userloginmodel usrmodel)
         {
+            List<roles> test = new List<roles>();
             int id = 0;
             using (SqlConnection con = new SqlConnection(constring))
             {
@@ -438,20 +439,34 @@ namespace WebApplicationlean.DAL
                 con.Close();
                 if (dt.Rows.Count == 0)
                 {
-                    return "F";
+                    // return "F";
+                    test.Add(new roles
+                    {
+                        Role ="fail",
+                        uid = 0
+                    });
+                    return test;
+
                 }
                 else
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
+                        test.Add(new roles
+                        {
+                            Role = dr["Role"].ToString(),
+                            uid = Convert.ToInt32(dr["ID"]),
 
-                        String val = dr["ID"].ToString();
-                        return val;
+
+
+
+                        });
                     }
+                    return test;
                 }
 
             }
-            return "F";
+           
         }
 
         //insert into inventory

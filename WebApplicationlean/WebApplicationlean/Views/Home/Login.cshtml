@@ -1,0 +1,144 @@
+﻿@model WebApplicationlean.Models.userloginmodel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    
+</head>
+<body >
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+          media="screen" />
+    <section class="container" style="padding-top:20rem ">
+        <div class="container extra" >
+            @if (TempData["InfoMessage"] != null)
+            {
+                <div class="alert alert-danger">
+                    <strong>Error !</strong> @TempData["InfoMessage"]
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+                </div>
+            }
+            else if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">
+                    <strong> @TempData["SuccessMessage"]</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+                </div>
+            }
+            else if (TempData["ErroMessage"] != null)
+            {
+                <div class="alert alert-danger">
+                    <strong>Error !</strong> @TempData["ErroMessage"]
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+                </div>
+            }
+            <div class="row d-flex justify-content-center align-items-center h-100" style="background-color: white;padding:40px;">
+                <div class="card-body">
+                    <div class="justify-content-center"><h2>User login</h2></div>
+                    <br />
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+
+
+
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group has-success">
+                    <!-- @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })-->
+                    <label class="control-label col-md-2">Email</label>
+                    <div class="">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                        <div class="form-group has-success">
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control mb-3", @type = "password" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <br />
+                        </div>
+                        <br />
+
+                        <br />
+                        <div style="justify-content:center">
+                            if you already have an account  @Html.ActionLink("Register", "Register")
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-lg btn-block btn-primary" />
+                            </div>
+                        </div>
+
+
+                    }
+                </div><!---->
+            </div>
+        </div>
+    </section>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+    body {
+        margin: 20pt !important;
+        background-color: whitesmoke;
+        background-image: url("../../Content/assets/img/gallery/gallery-3.jpg");
+        background-repeat:no-repeat;
+        background-size:cover;
+        backdrop-filter:blur(10px);
+        padding-bottom:20rem;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .extra {
+        max-width: 40%;
+        border: solid
+    }
+</style>
+</html>

@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\medController.cs" />
     <Compile Include="DAL\DAlofmedecine.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Models\modelofmedecine.cs" />
     <Compile Include="Models\modelofsupplyer.cs" />
     <Compile Include="Models\patientregmodel.cs" />
+    <Compile Include="Models\roles.cs" />
     <Compile Include="Models\supplyeridandname.cs" />
     <Compile Include="Models\testmodel.cs" />
     <Compile Include="Models\userloginmodel.cs" />
@@ -235,6 +237,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\new\bootstrap.css" />
+    <Content Include="Content\new\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -324,6 +328,14 @@
     <Content Include="Views\med\inventoryDelete.cshtml" />
     <Content Include="Views\med\inventoryEdit.cshtml" />
     <Content Include="Views\med\CreateBill.cshtml" />
+    <Content Include="Views\Shared\_new.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Admin\medecines.cshtml" />
+    <Content Include="Views\Admin\supplier.cshtml" />
+    <Content Include="Views\Admin\inventory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

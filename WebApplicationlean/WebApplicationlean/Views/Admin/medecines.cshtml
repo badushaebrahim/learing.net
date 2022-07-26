@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebApplicationlean.Models.modelofmedecine>
+
+@{
+    ViewBag.Title = "medecines";
+    Layout = "~/Views/Shared/_new.cshtml";
+}
+
+<h2>medecines</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nameofmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parmasisid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateandtime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priceperunit)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nameofmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parmasisid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateandtime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.priceperunit)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -4,30 +4,121 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplicationlean.DAL;
+using WebApplicationlean.Models;
 
 namespace WebApplicationlean.Controllers
 {
     public class HomeController : Controller
     {
-        //Medecine medDaL = new Medecine();
-        public ActionResult Index()
+        DAlofmedecine medDaL = new DAlofmedecine();
+        public ActionResult Home()
         {
-            //var medlist = medDaL.GetMedecines();
             return View();
         }
 
-        public ActionResult About()
+        //login view
+        public ActionResult Login()
         {
-            ViewBag.Message = "Your application description page.";
+            return View();
+        }
+        //login request
+        [HttpPost]
+        public ActionResult Login(userloginmodel usr)
+        {
+           
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var res = medDaL.Userlogin(usr);
+
+                    if (res[0].Role.ToString()== "fail")
+                    {
+                        TempData["SuccessMessage"] = res;
+                        Session["userid"] = res[0].uid.ToString();
+
+                    }
+                    else if (res[0].Role.ToString() == "Pharmasist")
+                    {
+                        //TempData["SuccessMessage"] = res;
+                        Session["userid"] = res[0].uid.ToString();
+                        return RedirectToAction("Index", "med");
+                    }
+                    else if (res[0].Role.ToString() == "Admin")
+                    {
+                        TempData["SuccessMessage"] = res;
+                        Session["userid"] = res[0].uid.ToString();
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "model error";
+                        return View();
+
+                    }
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "Invalid Data error";
+                    return View();
+
+
+
+                }
+                return RedirectToAction("Index", "med");
+
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message+"modelerror";
+                return RedirectToAction("Index");
+            }
+           
+        }
+
+
+        public ActionResult Register()
+        {
 
             return View();
         }
-
-        public ActionResult Contact()
+        public ActionResult Logout()
         {
-            ViewBag.Message = "Your contact page.";
+            Session["userid"] = null;
+            return RedirectToAction("Home");
+        }
+        // POST: med/Create
+        [HttpPost]
+        public ActionResult Register(Userregmodel1 usr)
+        {
+            bool Isinserted = false;
 
-            return View();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Isinserted = medDaL.Rgisternewuer(usr);
+                    if (Isinserted)
+                    {
+                        TempData["SuccessMessage"] = "register complete";
+
+                    }
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "model fail in register";
+
+                    return View();
+                }
+                return RedirectToAction("Login");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return RedirectToAction("Login");
+            }
+
         }
     }
 }

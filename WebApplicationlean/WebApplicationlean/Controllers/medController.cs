@@ -38,7 +38,7 @@ namespace WebApplicationlean.Controllers
             return RedirectToAction("Login");
         }
         // POST: med/Create
-        [HttpPost]
+      /*  [HttpPost]
         public ActionResult Register(Userregmodel1 usr)
         {
             bool Isinserted = false;
@@ -68,14 +68,14 @@ namespace WebApplicationlean.Controllers
                 return RedirectToAction("Login");
             }
 
-        }
+        }*/
         //login view
         public ActionResult Login()
         {
             return View();
         }
         //login request
-        [HttpPost]
+      /*  [HttpPost]
         public ActionResult Login(userloginmodel usr)
         {
             String res;
@@ -115,7 +115,7 @@ namespace WebApplicationlean.Controllers
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
-        }
+        }*/
 
 
         // GET: med

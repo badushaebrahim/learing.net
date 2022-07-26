@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <!--@Styles.Render("~/Content/new/css")-->
+
+    <link rel="stylesheet" href="~/Content/new/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/new/bootstrap.css" />
+
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!--<div class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("City Pharmacy", "Index", "med", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">@Html.ActionLink("Medecine", "Index", "med")</li>
+                    <li>@Html.ActionLink("Bill", "About", "Home")</li>
+                    <li>@Html.ActionLink("Inventory", "inventorypage", "med")</li>
+                    <li>@Html.ActionLink("Supplier", "Supplyerpage", "med")</li>
+                    <li class="danger">@Html.ActionLink("Logout", "Logout", "med")</li>
+                </ul>
+            </div>
+            -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        >@Html.ActionLink("Supplier", "supplier", "Admin",null,new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">inventory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">User</a>
+                    </li>
+                    
+                </ul>
+                <form class="d-flex">
+                   
+                    @Html.ActionLink("Logout", "Logout", "Home",null,new {@class = "btn btn-secondary my-2 my-sm-0" })
+                </form>
+            </div>
+        </div>
+    </nav>
+    </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Test APP</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
