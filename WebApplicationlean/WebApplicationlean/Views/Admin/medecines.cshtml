@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<WebApplicationlean.Models.modelofmedecine>
 
 @{
-    ViewBag.Title = "medecines";
+    ViewBag.Title = "Medecines";
     Layout = "~/Views/Shared/_new.cshtml";
 }
 
-<h2>medecines</h2>
+<h2>Medecines</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -42,9 +42,8 @@
             @Html.DisplayFor(modelItem => item.priceperunit)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.UID }, new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Delete", "MedecineDelete", new { id=item.UID },new {@class = "btn btn-danger"  })
         </td>
     </tr>
 }

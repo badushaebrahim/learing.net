@@ -412,7 +412,7 @@ namespace WebApplicationlean.DAL
 
         }
 
-        public List<roles>  Userlogin(userloginmodel usrmodel)
+        public List<roles> Userlogin(userloginmodel usrmodel)
         {
             List<roles> test = new List<roles>();
             int id = 0;
@@ -442,7 +442,7 @@ namespace WebApplicationlean.DAL
                     // return "F";
                     test.Add(new roles
                     {
-                        Role ="fail",
+                        Role = "fail",
                         uid = 0
                     });
                     return test;
@@ -466,7 +466,7 @@ namespace WebApplicationlean.DAL
                 }
 
             }
-           
+
         }
 
         //insert into inventory
@@ -595,7 +595,7 @@ namespace WebApplicationlean.DAL
 
 
 
-        public bool DeleteInventory(int SID,inventorylistmodelwithjoin mod)
+        public bool DeleteInventory(int SID, inventorylistmodelwithjoin mod)
         {
             int id = 0;
             using (SqlConnection con = new SqlConnection(constring))
@@ -656,8 +656,51 @@ namespace WebApplicationlean.DAL
 
 
         }
-        
 
+        //get all users
+        public List<Userregmodel1> Getusersall(){
+            List<Userregmodel1> invlist = new List<Userregmodel1>();
+
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+               // cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.CommandText = "dbo.getmed";
+                //cmd.CommandText = "SELECT * FROM dbo.medsdetails";
+                cmd.CommandText = "Select * from dbo.USERS";
+                
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable td = new DataTable();
+
+
+                sda.Fill(td);
+                con.Close();
+                foreach (DataRow dr in td.Rows)
+                {
+                    invlist.Add(new Userregmodel1
+                    {
+                        Name = dr["Name"].ToString(),
+                        DOB = dr["DOB"].ToString(),
+                        Email = dr["Email"].ToString(),
+                        Password = dr["Password"].ToString(),
+                        PhoneNumber = dr["PhoneNumber"].ToString(),
+                        Gender = dr["Gender"].ToString(),
+                        ConfirmPassword = "null,",
+                        ID = Convert.ToInt32(dr["ID"]),
+                        
+
+
+
+                    });
+                }
+            }
+
+            return invlist;
+
+
+
+        }
 
 
     }

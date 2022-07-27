@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebApplicationlean.Models.modelofmedecine>
+﻿@model IEnumerable<WebApplicationlean.Models.Userregmodel1>
 
 @{
     ViewBag.Title = "Index";
@@ -7,20 +7,25 @@
 
 <h2>Index</h2>
 
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nameofmed)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parmasisid)
+            @Html.DisplayNameFor(model => model.DOB)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.dateandtime)
+            @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.priceperunit)
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
         </th>
         <th></th>
     </tr>
@@ -28,19 +33,23 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Nameofmed)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Parmasisid)
+            @Html.DisplayFor(modelItem => item.DOB)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.dateandtime)
+            @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.priceperunit)
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
         </td>
         <td>
-            @Html.ActionLink("Delete", "Delete", new { id=item.UID })
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+           
+            @Html.ActionLink("Delete", "UserDelete", new { id=item.ID },new { @class="btn btn-danger"})
         </td>
     </tr>
 }

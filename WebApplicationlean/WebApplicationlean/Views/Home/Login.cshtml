@@ -13,13 +13,13 @@
     <title>Index</title>
     
 </head>
-<body >
+<body>
     <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
           media="screen" />
     <section class="container" style="padding-top:20rem ">
-        <div class="container extra" >
+        <div class="container extra">
             @if (TempData["InfoMessage"] != null)
             {
                 <div class="alert alert-danger">
@@ -32,6 +32,24 @@
                 <div class="alert alert-success">
                     <strong> @TempData["SuccessMessage"]</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
+                </div><div class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                @TempData["SuccessMessage"]
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             }
             else if (TempData["ErroMessage"] != null)
@@ -39,7 +57,25 @@
                 <div class="alert alert-danger">
                     <strong>Error !</strong> @TempData["ErroMessage"]
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button>
-                </div>
+                </div><div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @TempData["ErroMessage"]
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
             }
             <div class="row d-flex justify-content-center align-items-center h-100" style="background-color: white;padding:40px;">
                 <div class="card-body">
@@ -54,14 +90,14 @@
 
 
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group has-success">
-                    <!-- @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })-->
-                    <label class="control-label col-md-2">Email</label>
-                    <div class="">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+                        <div class="form-group has-success">
+                            <!-- @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })-->
+                            <label class="control-label col-md-2">Email</label>
+                            <div class="">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
                         <div class="form-group has-success">
                             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -90,6 +126,10 @@
             </div>
         </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>$('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })</script>
 </body>
 
 

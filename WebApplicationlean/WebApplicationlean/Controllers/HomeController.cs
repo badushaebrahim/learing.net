@@ -33,13 +33,13 @@ namespace WebApplicationlean.Controllers
                 {
                     var res = medDaL.Userlogin(usr);
 
-                    if (res[0].Role.ToString()== "fail")
+                  /*  if (res[0].Role.ToString()== "fail")
                     {
                         TempData["SuccessMessage"] = res;
                         Session["userid"] = res[0].uid.ToString();
 
                     }
-                    else if (res[0].Role.ToString() == "Pharmasist")
+                    else*/ if (res[0].Role.ToString() == "Pharmasist")
                     {
                         //TempData["SuccessMessage"] = res;
                         Session["userid"] = res[0].uid.ToString();
@@ -53,7 +53,7 @@ namespace WebApplicationlean.Controllers
                     }
                     else
                     {
-                        TempData["ErroMessage"] = "model error";
+                        TempData["ErroMessage"] = "Invalid Email/Password";
                         return View();
 
                     }

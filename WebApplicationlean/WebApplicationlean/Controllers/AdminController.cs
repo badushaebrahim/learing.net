@@ -13,20 +13,16 @@ namespace WebApplicationlean.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            var data = medDaL.GetMedecines();
+            var data = medDaL.Getusersall();
             return View(data);
         }
 
-        public ActionResult medecines()
-        {
-            var data = medDaL.GetMedecines();
-            return View(data);
-        }
 
 
         public ActionResult inventory()
         {
-            return View();
+            var data = medDaL.GetInventoryAll();
+            return View(data);
         }
 
         public ActionResult supplier()
@@ -35,7 +31,16 @@ namespace WebApplicationlean.Controllers
             return View(data);
         }
 
-
+        public ActionResult Medecines()
+        {
+            var data = medDaL.GetMedecines();
+            return View(data);
+        }
+        public ActionResult MedecineDelete(int id)
+        {
+            var data = medDaL.GetMedecinesbyID(id);
+            return View(data);
+        }
 
     }
 }
