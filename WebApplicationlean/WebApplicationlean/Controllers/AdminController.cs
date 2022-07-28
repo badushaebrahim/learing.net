@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplicationlean.DAL;
+using WebApplicationlean.Models;
 
 namespace WebApplicationlean.Controllers
 {
@@ -36,10 +37,112 @@ namespace WebApplicationlean.Controllers
             var data = medDaL.GetMedecines();
             return View(data);
         }
+        public ActionResult MedecineCreate()
+        {
+            return View();
+        }
+        // POST: med/Create
+        [HttpPost]
+        public ActionResult MedecineCreate(modelofmedecine med)
+        {
+            bool Isinserted = false;
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Isinserted = medDaL.Insertmeds(med);
+                    if (Isinserted)
+                    {
+                        TempData["SuccessMessage"] = "saved data";
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "fail";
+                    }
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "model error";
+                }
+
+
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return View();
+            }
+        }
+
+
         public ActionResult MedecineDelete(int id)
         {
-            var data = medDaL.GetMedecinesbyID(id);
+            var data = medDaL.GetMedecinesbyID(id).FirstOrDefault();
             return View(data);
+        }
+        [HttpPost]
+        public ActionResult MedecineDelete(int id,modelofmedecine mr)
+        {
+            bool Isdeleted = false;
+            try
+            {
+
+                Isdeleted = medDaL.Deletemeds(id);
+                if (Isdeleted)
+                {
+                    TempData["SuccessMessage"] = "Delete Success";
+                }
+                else
+                {
+                    TempData["ErroMessage"] = "Delete fail";
+                }
+
+
+                return RedirectToAction("Medecines");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return View();
+            }
+        }
+
+        public ActionResult MedecineEdit (int id)
+        {
+            var data = medDaL.GetMedecinesbyID(id).FirstOrDefault();
+            return View(data);
+        }
+        [HttpPost]
+        public ActionResult MedecineEdit(modelofmedecine med)
+        {
+
+            bool Isinserted = false;
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Isinserted = medDaL.Updatemeds(med);
+                    if (Isinserted)
+                    {
+                        TempData["SuccessMessage"] = "saved data";
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "fail";
+                    }
+                }
+
+
+
+                return RedirectToAction("Medecine");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return View();
+            }
         }
 
     }

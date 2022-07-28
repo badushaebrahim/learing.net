@@ -8,7 +8,7 @@
 <h2>Medecines</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "MedecineCreate",null,new {@class="btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -42,7 +42,7 @@
             @Html.DisplayFor(modelItem => item.priceperunit)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UID }, new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Edit", "MedecineEdit", new { id=item.UID }, new { @class = "btn btn-primary" }) 
             @Html.ActionLink("Delete", "MedecineDelete", new { id=item.UID },new {@class = "btn btn-danger"  })
         </td>
     </tr>

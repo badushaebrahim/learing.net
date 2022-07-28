@@ -24,7 +24,7 @@ CREATE TABLE [dbo].[BILL] (
 select * from BILL
 
 drop table  dbo.BILL
-
+--hhh
 create procedure BILL_CRUD(
 @Type AS VARCHAR(MAX)=NULL,
 @Docid  as int = null,
