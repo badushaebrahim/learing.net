@@ -18,6 +18,42 @@ namespace WebApplicationlean.Controllers
             return View(data);
         }
 
+        public ActionResult deletuser(int id) {
+
+            var data = medDaL.Getusersbyid(id).FirstOrDefault();
+            return View(data);
+        
+        }
+        [HttpPost]
+        public ActionResult deletuser(int id , Userregmodel1 mod)
+        {
+            bool Isdeleted = false;
+            try
+            {
+               // String na = mod.Name.ToString();
+
+
+                    Isdeleted = medDaL.deleteuserbyid(id);
+                    if (Isdeleted)
+                    {
+                        TempData["SuccessMessage"] = "Delete Success";
+                    }
+                    else
+                    {
+                        TempData["ErroMessage"] = "Delete fail";
+                    }
+
+
+                    return RedirectToAction("Medecines");
+               
+                 
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroMessage"] = ex.Message;
+                return View();
+            }
+        }
 
 
         public ActionResult inventory()

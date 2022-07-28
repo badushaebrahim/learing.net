@@ -702,6 +702,74 @@ namespace WebApplicationlean.DAL
 
         }
 
+        public List<Userregmodel1> Getusersbyid(int id)
+        {
+            List<Userregmodel1> invlist = new List<Userregmodel1>();
+
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                // cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.CommandText = "dbo.getmed";
+                //cmd.CommandText = "SELECT * FROM dbo.medsdetails";
+                cmd.CommandText = "Select * from dbo.USERS WHERE ID = "+id;
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable td = new DataTable();
+
+
+                sda.Fill(td);
+                con.Close();
+                foreach (DataRow dr in td.Rows)
+                {
+                    invlist.Add(new Userregmodel1
+                    {
+                        Name = dr["Name"].ToString(),
+                        DOB = dr["DOB"].ToString(),
+                        Email = dr["Email"].ToString(),
+                        Password = dr["Password"].ToString(),
+                        PhoneNumber = dr["PhoneNumber"].ToString(),
+                        Gender = dr["Gender"].ToString(),
+                        ConfirmPassword = "null,",
+                        ID = Convert.ToInt32(dr["ID"]),
+
+
+
+
+                    });
+                }
+            }
+
+            return invlist;
+
+
+
+        }
+        public bool deleteuserbyid(int ids)
+        {
+            
+            int id = 0;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.USER_TABLE_CRUD", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TYPE", "deleteUserid");
+                cmd.Parameters.AddWithValue("@ID", ids);
+                id = cmd.ExecuteNonQuery();
+                con.Close();
+                if (id > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+        }
 
     }
 }

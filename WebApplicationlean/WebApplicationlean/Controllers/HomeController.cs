@@ -66,7 +66,7 @@ namespace WebApplicationlean.Controllers
 
 
                 }
-                return RedirectToAction("Index", "med");
+              //  return RedirectToAction("Index", "med");
 
             }
             catch (Exception ex)
