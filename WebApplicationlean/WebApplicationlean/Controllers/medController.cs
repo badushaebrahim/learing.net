@@ -595,9 +595,20 @@ namespace WebApplicationlean.Controllers
         [HttpPost]
         public ActionResult CreateBill(patientregmodel test)
         {
-            int bid = 8;
+            // int bid = 8;
+            if (ModelState.IsValid)
+            {
+                return View();
+            }
+            else
+            {
+                return View();
 
-            return RedirectToAction("edit/"+bid);
+            }
+
+
+
+            //  return RedirectToAction("edit/"+bid);
         }
 
 
